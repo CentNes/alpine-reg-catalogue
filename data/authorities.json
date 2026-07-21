@@ -1,0 +1,860 @@
+{
+  "version": "1.0.0",
+  "description": "Alpine shared regulatory catalogue — canonical federal / PR-local / NCQA authorities governing Puerto Rico Medicaid (Plan Vital) health-plan operations. Consumed by all Alpine apps.",
+  "authorityCount": 53,
+  "authorities": [
+    {
+      "id": "RL-F01",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR Part 438",
+      "title": "Medicaid Managed Care",
+      "summary": "Governing federal regulation for Medicaid managed care contracts (MCO/PIHP/PAHP). Subpart E is the quality core. Applies to PR territories.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F02",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §438.66",
+      "title": "State monitoring requirements",
+      "summary": "State must monitor all managed-care programs: enrollee services, grievances/appeals, network adequacy, quality, financials, encounter data, and use of measures/PIPs; annual monitoring + readiness review.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.66",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F03",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §438.242",
+      "title": "Health information systems",
+      "summary": "MCO must maintain a health information system that collects, analyzes, integrates and reports data; ensures encounter-data accuracy and completeness. Basis for IS/data-integration duties.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-H/section-438.242",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F04",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §438.330",
+      "title": "Quality Assessment & Performance Improvement (QAPI)",
+      "summary": "MCO must run an ongoing QAPI: collect/submit performance-measure data, conduct PIPs, detect under/over-utilization, and address enrollees with special health-care needs.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-E/section-438.330",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F05",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §438.340",
+      "title": "Managed care State quality strategy",
+      "summary": "State must maintain a written quality strategy (measures, targets, PIPs, disparity reduction, EQR arrangements); public comment; review ≥ every 3 years.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-E/section-438.340",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F06",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §438.350",
+      "title": "External Quality Review (EQR)",
+      "summary": "State must ensure a qualified EQRO performs an annual EQR of each contracting MCO/PIHP.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-E/section-438.350",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F07",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §438.358",
+      "title": "Activities related to EQR",
+      "summary": "Mandatory EQR activities: validation of performance measures, validation of PIPs, compliance review (every 3 yrs), and network-adequacy validation; plus optional activities.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-E/section-438.358",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F08",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §438.364",
+      "title": "EQR results / annual technical report",
+      "summary": "State must produce an annual public EQR technical report on access/quality with plan-specific strengths, weaknesses, recommendations; posted by April 30.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-E/section-438.364",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F09",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR Part 438 Subpart G",
+      "title": "Medicaid/CHIP Quality Rating System (MAC QRS)",
+      "summary": "Mandatory Quality Rating System framework, mandatory measure set, methodology, and public one-stop-shop display (2024 rule).",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-G",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F10",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §438.68",
+      "title": "Network adequacy standards",
+      "summary": "Time/distance and other network-adequacy standards; validated as a mandatory EQR activity (2023 protocol).",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-B/section-438.68",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F11",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §438.10",
+      "title": "Information requirements for enrollees",
+      "summary": "Enrollee information standards including language access (Spanish for PR Medicaid) and alternate formats.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-A/section-438.10",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F12",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §§438.900–438.930",
+      "title": "Mental health / substance use parity",
+      "summary": "Applies MHPAEA parity to Medicaid managed care (financial requirements, treatment limitations, NQTLs).",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-K",
+      "domains": [
+        "managed-care",
+        "quality",
+        "encounters",
+        "membership",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F13",
+      "jurisdiction": "Federal",
+      "category": "Core Sets & EPSDT",
+      "citation": "42 CFR §437.10",
+      "title": "Mandatory Medicaid/CHIP Core Set reporting",
+      "summary": "Mandatory annual reporting of the Child Core Set and behavioral-health Adult measures in a standardized format.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-437",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-F14",
+      "jurisdiction": "Federal",
+      "category": "Core Sets & EPSDT",
+      "citation": "42 CFR §441 Subpart B",
+      "title": "EPSDT — Early & Periodic Screening, Diagnostic & Treatment",
+      "summary": "Child preventive-services benefit; CMS-416 annual reporting.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-441/subpart-B",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-F15",
+      "jurisdiction": "Federal",
+      "category": "Core Sets & EPSDT",
+      "citation": "SSA §1139A; Pub. L. 115-123 §50102",
+      "title": "Child Core Set mandatory (BBA 2018)",
+      "summary": "Bipartisan Budget Act of 2018 makes annual Child Core Set reporting mandatory beginning FFY 2024.",
+      "type": "Statute",
+      "status": "mandate",
+      "url": "https://www.congress.gov/bill/115th-congress/house-bill/1892",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-F16",
+      "jurisdiction": "Federal",
+      "category": "Core Sets & EPSDT",
+      "citation": "SUPPORT Act §5001 (Pub. L. 115-271)",
+      "title": "Behavioral-health Adult measures mandatory",
+      "summary": "Makes BH measures of the Adult Core Set mandatory beginning FFY 2024; remaining adult measures voluntary.",
+      "type": "Statute",
+      "status": "mandate",
+      "url": "https://www.congress.gov/bill/115th-congress/house-bill/6",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-F17",
+      "jurisdiction": "Federal",
+      "category": "CMS Rules & Guidance",
+      "citation": "CMS-2439-F (89 FR 41002)",
+      "title": "2024 Managed Care \"Access, Finance & Quality\" Final Rule",
+      "summary": "Establishes MAC QRS (Subpart G), adds network-adequacy EQR validation, transparency; effective Jul 9, 2024.",
+      "type": "Policy/Guidance",
+      "status": "mandate",
+      "url": "https://www.federalregister.gov/d/2024-08085",
+      "domains": [
+        "cms",
+        "quality",
+        "interop"
+      ]
+    },
+    {
+      "id": "RL-F18",
+      "jurisdiction": "Federal",
+      "category": "CMS Rules & Guidance",
+      "citation": "88 FR 60278 (Aug 31, 2023)",
+      "title": "Mandatory Medicaid/CHIP Core Set Reporting rule",
+      "summary": "Implements mandatory annual Child Core Set + BH Adult measure reporting mechanics and phased content.",
+      "type": "Policy/Guidance",
+      "status": "mandate",
+      "url": "https://www.federalregister.gov/d/2023-18669",
+      "domains": [
+        "cms",
+        "quality",
+        "interop"
+      ]
+    },
+    {
+      "id": "RL-F19",
+      "jurisdiction": "Federal",
+      "category": "CMS Rules & Guidance",
+      "citation": "CMS SHO #23-005",
+      "title": "Initial Core Set Mandatory Reporting Guidance",
+      "summary": "State Health Official letter confirming Child Core Set + BH Adult measures mandatory starting FFY 2024.",
+      "type": "Policy/Guidance",
+      "status": "mandate",
+      "url": "https://www.medicaid.gov/sites/default/files/2023-12/sho23005.pdf",
+      "domains": [
+        "cms",
+        "quality",
+        "interop"
+      ]
+    },
+    {
+      "id": "RL-F20",
+      "jurisdiction": "Federal",
+      "category": "CMS Rules & Guidance",
+      "citation": "CMS 2023 EQR Protocols",
+      "title": "External Quality Review Protocols",
+      "summary": "Standardized methods for each EQR activity (PIP validation, PM validation, compliance, network adequacy).",
+      "type": "Policy/Guidance",
+      "status": "mandate",
+      "url": "https://www.medicaid.gov/medicaid/quality-of-care/downloads/2023-eqr-protocols.pdf",
+      "domains": [
+        "cms",
+        "quality",
+        "interop"
+      ]
+    },
+    {
+      "id": "RL-F21",
+      "jurisdiction": "Federal",
+      "category": "CMS Rules & Guidance",
+      "citation": "CMS-2390-F (2016) / CMS-2408-F (2020)",
+      "title": "Medicaid Managed Care Final Rules (2016, 2020)",
+      "summary": "Created the modern QAPI/quality-strategy/EQR architecture (2016) and rebalanced oversight/flexibility (2020).",
+      "type": "Policy/Guidance",
+      "status": "reference",
+      "url": "https://www.medicaid.gov/medicaid/managed-care/guidance/medicaid-and-chip-managed-care-final-rules",
+      "domains": [
+        "cms",
+        "quality",
+        "interop"
+      ]
+    },
+    {
+      "id": "RL-F22",
+      "jurisdiction": "Federal",
+      "category": "PR Financing",
+      "citation": "SSA §1108",
+      "title": "Territory Medicaid funding cap / FMAP",
+      "summary": "PR Medicaid funded via annual federal cap plus enhanced funds (FMAP 76% through 9/30/2027); does not reduce Part 438 quality duties.",
+      "type": "Statute",
+      "status": "reference",
+      "url": "https://www.congress.gov/crs-product/IF11012",
+      "domains": [
+        "financial"
+      ]
+    },
+    {
+      "id": "RL-F23",
+      "jurisdiction": "Federal",
+      "category": "HIPAA",
+      "citation": "45 CFR §164.502",
+      "title": "HIPAA Privacy Rule",
+      "summary": "PHI use/disclosure, minimum necessary, Business Associate requirements.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-E/section-164.502",
+      "domains": [
+        "privacy-security",
+        "edi",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F24",
+      "jurisdiction": "Federal",
+      "category": "HIPAA",
+      "citation": "45 CFR §164.312",
+      "title": "HIPAA Security Rule — technical safeguards",
+      "summary": "Access control, audit controls, integrity, and transmission security for ePHI. Basis for the app's audit trail.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312",
+      "domains": [
+        "privacy-security",
+        "edi",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-F25",
+      "jurisdiction": "Federal",
+      "category": "HIPAA",
+      "citation": "45 CFR Part 162",
+      "title": "HIPAA Transactions & Code Sets (X12)",
+      "summary": "Standard EDI transactions (837, 835, 999, 277CA) and code sets used for claims/encounters/remittances.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-162",
+      "domains": [
+        "privacy-security",
+        "edi",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-P01",
+      "jurisdiction": "PR Local",
+      "category": "ASES / Plan Vital",
+      "citation": "Ley Núm. 72 de 1993",
+      "title": "Ley de la Administración de Seguros de Salud (ASES)",
+      "summary": "Creates ASES/PRHIA — the public corporation that contracts, supervises and evaluates the MCOs delivering Plan Vital. Statutory basis for all quality/reporting obligations.",
+      "type": "Statute",
+      "status": "mandate",
+      "url": "https://bvirtualogp.pr.gov/ogp/BVirtual/LeyesOrganicas/pdf/72-1993.pdf",
+      "domains": [
+        "contract",
+        "quality",
+        "claims",
+        "membership",
+        "encounters"
+      ]
+    },
+    {
+      "id": "RL-P02",
+      "jurisdiction": "PR Local",
+      "category": "ASES / Plan Vital",
+      "citation": "Contrato Plan Vital 23-047 (FMHP)",
+      "title": "First Medical Plan Vital MCO Contract (2023–2025)",
+      "summary": "The operative MCO instrument: covered benefits, capitation (HCHN carve-in), encounter data, quality/HEDIS reporting (§12, §18.2), grievances/appeals, network adequacy.",
+      "type": "Contract",
+      "status": "mandate",
+      "url": "https://docs.pr.gov/files/ASES/Plan%20Vital/Aseguradoras%20Contratadas/ASEGURADORAS%20CONTRATADAS%202023-2025/First%20Medical%20Health%20Plan%20Inc/CONTRATO%20&%20ANEJOS/23-047%20FIRST%20MEDICAL%20HEALTH%20PLAN,%20INC.%20(VITAL).pdf",
+      "domains": [
+        "contract",
+        "quality",
+        "claims",
+        "membership",
+        "encounters"
+      ]
+    },
+    {
+      "id": "RL-P03",
+      "jurisdiction": "PR Local",
+      "category": "ASES / Plan Vital",
+      "citation": "PR Medicaid Managed Care Quality Strategy (10-21-24)",
+      "title": "PR Medicaid & CHIP Managed Care Quality Strategy",
+      "summary": "CMS-required §438.340 strategy: required HEDIS measure set, HCIP withhold, PIP topics, CAHPS/ECHO, EQRO protocols. The single best authoritative map.",
+      "type": "Policy/Guidance",
+      "status": "mandate",
+      "url": "https://docs.pr.gov/files/ASES/Monitoreo%20&%20Auditoria/Monitoreo/Puerto%20Rico%20Medical%20Assistance%20and%20Childrens%20Health%20Insurance%20Program%20(CHIP)%20Managed%20Care%20Quality%20Strategy/PR%20Medicaid%20Quality%20Strategy%20Final%2010-21-24.pdf",
+      "domains": [
+        "contract",
+        "quality",
+        "claims",
+        "membership",
+        "encounters"
+      ]
+    },
+    {
+      "id": "RL-P04",
+      "jurisdiction": "PR Local",
+      "category": "ASES / Plan Vital",
+      "citation": "Plan Vital Reporting Guide (Attachment 12, v.09)",
+      "title": "Plan Vital Reporting Guide",
+      "summary": "Catalogue of MCO reports/formats/frequencies/deadlines: Report 24 Audited HEDIS, 26 Core Measures, 22 HCIP (qtrly), 13 CMS-416 EPSDT, 12 Encounter Data.",
+      "type": "Contract",
+      "status": "mandate",
+      "url": "https://docs.pr.gov/files/ASES/Contratacion_Gubernamental/Request%20For%20Proposals%20(RFP)/PSG%202022/Attachment-12-Reporting-Guide-V.09-6-22-22.pdf",
+      "domains": [
+        "contract",
+        "quality",
+        "claims",
+        "membership",
+        "encounters"
+      ]
+    },
+    {
+      "id": "RL-P05",
+      "jurisdiction": "PR Local",
+      "category": "ASES / Plan Vital",
+      "citation": "Carta Normativa 21-0217",
+      "title": "Required HEDIS measure set (ASES policy letter)",
+      "summary": "ASES normative letter communicating the required HEDIS measure set (per HEDIS MY Vol. 2) captured in Report 24. Binding policy guidance.",
+      "type": "Policy/Guidance",
+      "status": "mandate",
+      "url": "https://docs.pr.gov/files/ASES/",
+      "domains": [
+        "contract",
+        "quality",
+        "claims",
+        "membership",
+        "encounters"
+      ]
+    },
+    {
+      "id": "RL-P06",
+      "jurisdiction": "PR Local",
+      "category": "ASES / Plan Vital",
+      "citation": "HCIP — Health Care Improvement Program",
+      "title": "Health Care Improvement Program (quality withhold)",
+      "summary": "Quality withhold: ~2% of the admin fee earned back quarterly on benchmark targets across Healthy People, Chronic Conditions, and a third initiative. Reported via Report 22.",
+      "type": "Contract",
+      "status": "mandate",
+      "url": "https://docs.pr.gov/files/ASES/",
+      "domains": [
+        "contract",
+        "quality",
+        "claims",
+        "membership",
+        "encounters"
+      ]
+    },
+    {
+      "id": "RL-P07",
+      "jurisdiction": "PR Local",
+      "category": "ASES / Plan Vital",
+      "citation": "ASES EQR Technical Report (Feb 2024)",
+      "title": "PR External Quality Review Annual Technical Report",
+      "summary": "Mercer (EQRO since 2022) validates PIPs, performance measures and HEDIS for the GHP MCOs incl. FMHP; demonstrates §438.350–.364 compliance.",
+      "type": "Report",
+      "status": "reference",
+      "url": "https://docs.pr.gov/files/ASES/Monitoreo%20&%20Auditoria/Auditor%C3%ADa/Entidad%20de%20Revisi%C3%B3n%20de%20Calidad%20Externa%20(External%20Quality%20Review%20Organization,%20EQRO)/Informe%20Tecnico%20Anual%20de%20revision%20Externa%20de%20Calidad%20Febrero%202024.pdf",
+      "domains": [
+        "contract",
+        "quality",
+        "claims",
+        "membership",
+        "encounters"
+      ]
+    },
+    {
+      "id": "RL-P08",
+      "jurisdiction": "PR Local",
+      "category": "ASES / Plan Vital",
+      "citation": "ASES APR DRG Readiness Attestation (2025)",
+      "title": "APR DRG inpatient pricing readiness attestation",
+      "summary": "Go-live Oct 1, 2025: inpatient DRG pricing (Solventum) — P&Ps, coding support, system testing, CARC/RARC, encounter→MMIS. Tracked in the Readiness Tracker.",
+      "type": "Policy/Guidance",
+      "status": "mandate",
+      "url": "https://docs.pr.gov/files/ASES/",
+      "domains": [
+        "contract",
+        "quality",
+        "claims",
+        "membership",
+        "encounters"
+      ]
+    },
+    {
+      "id": "RL-P09",
+      "jurisdiction": "PR Local",
+      "category": "PR Statute — Insurance",
+      "citation": "Ley Núm. 77 de 1957, Cap. 30 (Arts. 30.010–30.070)",
+      "title": "Código de Seguros — Pago Puntual / Clean Claims",
+      "summary": "Clean-claim + prompt-payment mandate: 30-day payment window, 90-day provider filing, 15-day deficiency notice, interest on late pay. Applies to MCOs (HSOs).",
+      "type": "Statute",
+      "status": "mandate",
+      "url": "https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/C%C3%B3digos/77-1957/77-1957.pdf",
+      "domains": [
+        "claims",
+        "financial",
+        "member-rights"
+      ]
+    },
+    {
+      "id": "RL-P10",
+      "jurisdiction": "PR Local",
+      "category": "PR Statute — Insurance",
+      "citation": "Ley Núm. 77 de 1957, Cap. 19",
+      "title": "Código de Seguros — Organizaciones de Servicios de Salud (HSO)",
+      "summary": "Licensing/solvency framework for Health Service Organizations — the corporate form MCOs operate under, regulated by OCS.",
+      "type": "Statute",
+      "status": "mandate",
+      "url": "https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/C%C3%B3digos/77-1957/77-1957.pdf",
+      "domains": [
+        "claims",
+        "financial",
+        "member-rights"
+      ]
+    },
+    {
+      "id": "RL-P11",
+      "jurisdiction": "PR Local",
+      "category": "PR Statute — Insurance",
+      "citation": "Ley 104-2002; Ley 138-2020; Ley 59-2024",
+      "title": "Prompt-pay / clean-claim amendments",
+      "summary": "Establish and tighten prompt-payment: standardized clean-claim definition, uniform 30-day rule, telemedicine-as-in-person, Art. 30.040 amendments.",
+      "type": "Statute",
+      "status": "mandate",
+      "url": "https://www.lexjuris.com/lexlex/Leyes2024/lexl2024059.htm",
+      "domains": [
+        "claims",
+        "financial",
+        "member-rights"
+      ]
+    },
+    {
+      "id": "RL-P12",
+      "jurisdiction": "PR Local",
+      "category": "PR Statute — Insurance",
+      "citation": "Ley Núm. 194 de 2011",
+      "title": "Código de Seguros de Salud de PR",
+      "summary": "Health-insurance consumer code: member protections, coverage definitions, internal/external appeals, transparency.",
+      "type": "Statute",
+      "status": "mandate",
+      "url": "https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/C%C3%B3digos/194-2011/194-2011.pdf",
+      "domains": [
+        "claims",
+        "financial",
+        "member-rights"
+      ]
+    },
+    {
+      "id": "RL-P13",
+      "jurisdiction": "PR Local",
+      "category": "PR Statute — Patient Rights",
+      "citation": "Ley Núm. 194 de 2000",
+      "title": "Carta de Derechos y Responsabilidades del Paciente",
+      "summary": "Patient bill of rights binding on health plans: quality care, non-discrimination, 24/7 ER access without prior auth, privacy, informed consent, continuity of care.",
+      "type": "Statute",
+      "status": "mandate",
+      "url": "https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/Derechos%20Civiles/194-2000/194-2000.pdf",
+      "domains": [
+        "member-rights"
+      ]
+    },
+    {
+      "id": "RL-P14",
+      "jurisdiction": "PR Local",
+      "category": "PR Statute — Behavioral Health",
+      "citation": "Ley Núm. 408 de 2000 (amended by Ley 183-2008)",
+      "title": "Ley de Salud Mental de PR",
+      "summary": "Mental-health code: MH Bill of Rights, service procedures, consent, and managed-care alignment. Foundational for BH measures and member rights.",
+      "type": "Statute",
+      "status": "mandate",
+      "url": "https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/C%C3%B3digos/408-2000/408-2000.pdf",
+      "domains": [
+        "behavioral-health",
+        "member-rights"
+      ]
+    },
+    {
+      "id": "RL-P15",
+      "jurisdiction": "PR Local",
+      "category": "PR Regulator",
+      "citation": "Oficina del Comisionado de Seguros (OCS)",
+      "title": "OCS — Insurance Commissioner authority & reglamentos",
+      "summary": "Enforces the Insurance Code, licenses insurers/HSOs, sets clean-claim/prompt-pay standards, adjudicates non-payment complaints.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ocs.pr.gov/en-us",
+      "domains": [
+        "regulator",
+        "claims"
+      ]
+    },
+    {
+      "id": "RL-P16",
+      "jurisdiction": "PR Local",
+      "category": "PR Statute — Transparency",
+      "citation": "Ley Núm. 141 de 2019",
+      "title": "Ley de Transparencia y Acceso a la Información Pública",
+      "summary": "PR public-records / FOIA-equivalent — how to obtain ASES/OCS public records (contracts, quality strategies, reglamentos).",
+      "type": "Statute",
+      "status": "reference",
+      "url": "https://bvirtualogp.pr.gov/ogp/bvirtual/leyesreferencia/pdf/141-2019.pdf",
+      "domains": [
+        "member-rights",
+        "transparency"
+      ]
+    },
+    {
+      "id": "RL-N01",
+      "jurisdiction": "NCQA",
+      "category": "HEDIS Specifications",
+      "citation": "NCQA HEDIS Volume 2",
+      "title": "Technical Specifications for Health Plans",
+      "summary": "Per-measure technical spec: eligible population, numerator/denominator, exclusions, admin/hybrid logic, sampling. Required to compute/submit HEDIS. Annual, licensed.",
+      "type": "Standard",
+      "status": "licensed",
+      "url": "https://store.ncqa.org/hedis/hedis-publications-outline.html",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-N02",
+      "jurisdiction": "NCQA",
+      "category": "HEDIS Specifications",
+      "citation": "NCQA HEDIS Value Set Directory (VSD)",
+      "title": "Value Set Directory",
+      "summary": "Code tables (CPT/HCPCS/LOINC/ICD-10/SNOMED) crosswalked to each measure. Licensed, per MY.",
+      "type": "Standard",
+      "status": "licensed",
+      "url": "https://store.ncqa.org/hedis.html",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-N03",
+      "jurisdiction": "NCQA",
+      "category": "HEDIS Audit",
+      "citation": "NCQA HEDIS Volume 5",
+      "title": "Compliance Audit — Standards, Policies & Procedures",
+      "summary": "The only NCQA-approved audit methodology: IS capabilities (IS 1–7), measure-compliance evaluation, MRRV, result designations. Licensed.",
+      "type": "Standard",
+      "status": "licensed",
+      "url": "https://store.ncqa.org/hedis/hedis-publications-outline.html",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-N04",
+      "jurisdiction": "NCQA",
+      "category": "HEDIS Audit",
+      "citation": "NCQA HEDIS Compliance Audit",
+      "title": "HEDIS Compliance Audit program (IS 1–7)",
+      "summary": "Two-part audit (IS capabilities + measure review) by a Certified HEDIS Compliance Auditor; required before rates are reportable.",
+      "type": "Program",
+      "status": "mandate",
+      "url": "https://www.ncqa.org/programs/data-and-information-technology/hit-and-data-certification/hedis-compliance-audit-certification/about-the-hedis-compliance-audit/",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-N05",
+      "jurisdiction": "NCQA",
+      "category": "Certification",
+      "citation": "NCQA Measure Certification",
+      "title": "Measure Certification (test decks)",
+      "summary": "Per-measure, per-year certification: run NCQA test decks through the engine; NCQA compares to expected results and issues a seal.",
+      "type": "Program",
+      "status": "licensed",
+      "url": "https://www.ncqa.org/programs/data-and-information-technology/hit-and-data-certification/measure-certification/process/",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-N06",
+      "jurisdiction": "NCQA",
+      "category": "Digital",
+      "citation": "NCQA Digital Content Services (DCS)",
+      "title": "Digital HEDIS measure packages (FHIR + CQL)",
+      "summary": "Official machine-readable HEDIS measures in FHIR/CQL for direct execution (the engine's measure logic). Subscription.",
+      "type": "Standard",
+      "status": "licensed",
+      "url": "https://www.ncqa.org/programs/data-and-information-technology/digital-content-services/the-path-to-digital-hedis/",
+      "domains": [
+        "quality",
+        "interop"
+      ]
+    },
+    {
+      "id": "RL-N07",
+      "jurisdiction": "NCQA",
+      "category": "Digital",
+      "citation": "NCQA ECDS Reporting",
+      "title": "Electronic Clinical Data Systems reporting",
+      "summary": "Full-population, non-sampled reporting from structured electronic clinical data via FHIR; replaces hybrid as measures go digital.",
+      "type": "Standard",
+      "status": "mandate",
+      "url": "https://www.ncqa.org/hedis/the-future-of-hedis/digital-measures/",
+      "domains": [
+        "quality",
+        "interop"
+      ]
+    },
+    {
+      "id": "RL-N08",
+      "jurisdiction": "NCQA",
+      "category": "Supplemental Data",
+      "citation": "NCQA Data Aggregator Validation (DAV)",
+      "title": "DAV & supplemental-data / PSV rules",
+      "summary": "Validated data streams count as standard supplemental data (skip PSV); non-standard data requires Primary Source Verification.",
+      "type": "Program",
+      "status": "reference",
+      "url": "https://www.ncqa.org/programs/data-and-information-technology/hit-and-data-certification/hedis-compliance-audit-certification/data-aggregator-validation/",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-N09",
+      "jurisdiction": "NCQA",
+      "category": "Surveys",
+      "citation": "NCQA CAHPS Survey Vendor Certification",
+      "title": "CAHPS / ECHO survey administration",
+      "summary": "Plan must use an NCQA-Certified survey vendor for CAHPS (Adult/Child) and ECHO (behavioral health); cannot self-administer.",
+      "type": "Program",
+      "status": "mandate",
+      "url": "https://www.ncqa.org/programs/data-and-information-technology/hit-and-data-certification/cahps-5-1h-survey-certification/",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-N10",
+      "jurisdiction": "NCQA",
+      "category": "Submission",
+      "citation": "NCQA IDSS / Patient-Level Data",
+      "title": "IDSS submission & Patient-Level Data (PLD)",
+      "summary": "Web submission of audited HEDIS results (IDSS) and member-level detail (PLD) on the annual timeline.",
+      "type": "Program",
+      "status": "mandate",
+      "url": "https://www.ncqa.org/hedis/data-submission/",
+      "domains": [
+        "quality",
+        "edi"
+      ]
+    },
+    {
+      "id": "RL-N11",
+      "jurisdiction": "NCQA",
+      "category": "Roadmap",
+      "citation": "NCQA Future of HEDIS",
+      "title": "Hybrid retirement (MY2029) & all-digital (MY2030)",
+      "summary": "Proposed timeline: hybrid method retired by MY2029; HEDIS fully digital (FHIR/CQL) by MY2030. Drives ECDS/digital readiness.",
+      "type": "Standard",
+      "status": "reference",
+      "url": "https://www.ncqa.org/resources/ncqas-proposed-timeline-for-retiring-and-replacing-hedis-hybrid-measures/",
+      "domains": [
+        "quality"
+      ]
+    },
+    {
+      "id": "RL-N12",
+      "jurisdiction": "NCQA",
+      "category": "Digital",
+      "citation": "HL7 FHIR R4 + CQL (HEDIS IG)",
+      "title": "FHIR/CQL standards for digital HEDIS",
+      "summary": "HL7 FHIR R4 + Clinical Quality Language, per the HEDIS FHIR Implementation Guide — the technical basis of the digital engine.",
+      "type": "Standard",
+      "status": "reference",
+      "url": "https://github.com/cqframework/hedis-ig",
+      "domains": [
+        "quality",
+        "interop"
+      ]
+    }
+  ]
+}

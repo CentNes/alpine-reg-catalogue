@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Alpine regulatory authority",
+  "type": "object",
+  "required": ["id", "jurisdiction", "citation", "title", "summary", "type", "status", "domains"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^RL-[A-Z]\\d{2,}$", "description": "Stable canonical id, e.g. RL-F01 (Federal), RL-P05 (PR Local), RL-N01 (NCQA)." },
+    "jurisdiction": { "type": "string", "enum": ["Federal", "PR Local", "NCQA"] },
+    "category": { "type": "string" },
+    "citation": { "type": "string", "description": "Formal citation, e.g. '42 CFR §438.330', 'Carta Normativa 21-0217'." },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "type": { "type": "string", "description": "Regulation | Statute | Policy/Guidance | Contract | Specification | Standard | Program" },
+    "status": { "type": "string", "enum": ["mandate", "licensed", "guidance", "retired"] },
+    "url": { "type": "string" },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["managed-care", "quality", "claims", "encounters", "membership", "pharmacy", "edi", "privacy-security", "financial", "provider", "member-rights", "behavioral-health", "interop", "contract", "cms", "regulator", "transparency", "general"]
+      },
+      "description": "Operational domains this authority governs. Apps filter by domain but share this catalogue."
+    }
+  }
+}

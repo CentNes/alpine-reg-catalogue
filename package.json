@@ -1,0 +1,13 @@
+{
+  "name": "@alpine/reg-catalogue",
+  "version": "1.0.0",
+  "description": "Shared regulatory catalogue (federal / PR-local / NCQA authorities) for Alpine / First Medical Plan Vital apps. Single source of truth consumed by HEDIS, UB-04 OCR, MMIS 835, and future apps.",
+  "main": "index.js",
+  "files": ["index.js", "data/", "schema/"],
+  "scripts": {
+    "validate": "node scripts/validate.js"
+  },
+  "keywords": ["medicaid", "plan-vital", "ases", "hedis", "regulatory", "puerto-rico", "compliance"],
+  "license": "UNLICENSED",
+  "private": true
+}
