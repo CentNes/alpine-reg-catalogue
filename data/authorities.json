@@ -1,7 +1,7 @@
 {
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Alpine shared regulatory catalogue — canonical federal / PR-local / NCQA authorities governing Puerto Rico Medicaid (Plan Vital) health-plan operations. Consumed by all Alpine apps.",
-  "authorityCount": 64,
+  "authorityCount": 65,
   "authorities": [
     {
       "id": "RL-F01",
@@ -1271,6 +1271,25 @@
       "type": "Standard",
       "status": "reference",
       "url": "https://www.nucc.org/",
+      "domains": [
+        "claims",
+        "edi"
+      ]
+    },
+    {
+      "id": "RL-F37",
+      "jurisdiction": "Federal",
+      "category": "HIPAA / X12 Standards",
+      "citation": "45 CFR §162.1002",
+      "title": "HIPAA medical data code sets (ICD-10-CM/PCS, CPT, HCPCS)",
+      "title_en": "HIPAA medical data code sets (ICD-10-CM/PCS, CPT, HCPCS)",
+      "title_es": "Conjuntos de códigos médicos de HIPAA (ICD-10-CM/PCS, CPT, HCPCS)",
+      "summary": "Adopts the medical data code sets for HIPAA transactions: ICD-10-CM (diagnoses), ICD-10-PCS (inpatient procedures), CPT/HCPCS (services), and code sets used on the UB-04/1500 and 837.",
+      "summary_en": "Adopts the medical data code sets for HIPAA transactions: ICD-10-CM (diagnoses), ICD-10-PCS (inpatient procedures), CPT/HCPCS (services), and code sets used on the UB-04/1500 and 837.",
+      "summary_es": "Adopta los conjuntos de códigos médicos para las transacciones HIPAA: ICD-10-CM (diagnósticos), ICD-10-PCS (procedimientos de internación), CPT/HCPCS (servicios) y los conjuntos usados en el UB-04/1500 y el 837.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-162/subpart-J/section-162.1002",
       "domains": [
         "claims",
         "edi"
