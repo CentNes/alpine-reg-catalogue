@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Rule → artifact map. Links a concrete data element / process / EDI transaction used by an Alpine app to the governing authorities (by id in authorities.json). This is the layer that gives every app the same regulatory context.",
   "apps": [
     "hedis",
@@ -214,7 +214,8 @@
       "authorities": [
         "RL-F23",
         "RL-F24",
-        "RL-P12"
+        "RL-P12",
+        "RL-F34"
       ]
     },
     {

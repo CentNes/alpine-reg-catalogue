@@ -12,7 +12,7 @@ of keeping its own divergent copy.
 
 ## What's here
 ```
-data/authorities.json   61 canonical authorities (federal / PR-local / NCQA), domain-tagged, bilingual (EN/ES)
+data/authorities.json   62 canonical authorities (federal / PR-local / NCQA), domain-tagged, bilingual (EN/ES)
 data/mappings.json      rule → artifact map: which authority governs which data element / process / transaction
 schema/authority.schema.json   JSON Schema for one authority
 index.js                Node helper (byId, byDomain, byJurisdiction, mappingsForApp, authoritiesForArtifact)

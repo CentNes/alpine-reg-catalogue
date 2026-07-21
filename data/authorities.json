@@ -1,7 +1,7 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Alpine shared regulatory catalogue — canonical federal / PR-local / NCQA authorities governing Puerto Rico Medicaid (Plan Vital) health-plan operations. Consumed by all Alpine apps.",
-  "authorityCount": 61,
+  "authorityCount": 62,
   "authorities": [
     {
       "id": "RL-F01",
@@ -1218,6 +1218,24 @@
       "domains": [
         "edi",
         "financial"
+      ]
+    },
+    {
+      "id": "RL-F34",
+      "jurisdiction": "Federal",
+      "category": "HIPAA",
+      "citation": "45 CFR Part 164",
+      "title": "HIPAA Administrative Simplification — Privacy, Security & Breach Notification",
+      "title_en": "HIPAA Administrative Simplification — Privacy, Security & Breach Notification",
+      "title_es": "Simplificación Administrativa de HIPAA — Privacidad, Seguridad y Notificación de Brechas",
+      "summary": "Umbrella Part covering the HIPAA Privacy (Subpart E), Security (Subpart C) and Breach Notification (Subpart D) Rules for PHI/ePHI. RL-F23 (§164.502) and RL-F24 (§164.312) are specific sections within it.",
+      "summary_en": "Umbrella Part covering the HIPAA Privacy (Subpart E), Security (Subpart C) and Breach Notification (Subpart D) Rules for PHI/ePHI. RL-F23 (§164.502) and RL-F24 (§164.312) are specific sections within it.",
+      "summary_es": "Parte paraguas que abarca las Reglas de Privacidad (Subpart E), Seguridad (Subpart C) y Notificación de Brechas (Subpart D) de HIPAA para PHI/ePHI. RL-F23 (§164.502) y RL-F24 (§164.312) son secciones específicas dentro de ella.",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164",
+      "domains": [
+        "privacy-security"
       ]
     }
   ]
