@@ -1,5 +1,5 @@
 {
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Rule → artifact map. Links a concrete data element / process / EDI transaction used by an Alpine app to the governing authorities (by id in authorities.json). This is the layer that gives every app the same regulatory context.",
   "apps": [
     "hedis",
@@ -274,6 +274,18 @@
         "RL-F29"
       ],
       "notes": "For CMS-1500 / professional lines when handled alongside institutional."
+    },
+    {
+      "artifact": "UB-04 / CMS-1500 form field extraction (OCR)",
+      "app": "ub04-ocr",
+      "domain": "claims",
+      "authorities": [
+        "RL-F35",
+        "RL-F36",
+        "RL-F28",
+        "RL-F29"
+      ],
+      "notes": "Paper form standards (NUBC/NUCC) whose electronic equivalents are the 837I/837P TR3s."
     }
   ]
 }

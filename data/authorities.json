@@ -1,7 +1,7 @@
 {
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Alpine shared regulatory catalogue — canonical federal / PR-local / NCQA authorities governing Puerto Rico Medicaid (Plan Vital) health-plan operations. Consumed by all Alpine apps.",
-  "authorityCount": 62,
+  "authorityCount": 64,
   "authorities": [
     {
       "id": "RL-F01",
@@ -1236,6 +1236,44 @@
       "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164",
       "domains": [
         "privacy-security"
+      ]
+    },
+    {
+      "id": "RL-F35",
+      "jurisdiction": "Federal",
+      "category": "Claim Form Standards",
+      "citation": "NUBC UB-04 (CMS-1450)",
+      "title": "NUBC UB-04 institutional claim form & code sets",
+      "title_en": "NUBC UB-04 institutional claim form & code sets",
+      "title_es": "Formulario institucional UB-04 de la NUBC y sus conjuntos de códigos",
+      "summary": "National Uniform Billing Committee UB-04 (CMS-1450) form layout and code sets (revenue codes, condition/occurrence/value codes, FL locators). The paper/field standard whose electronic equivalent is the X12 837I; the source of truth for institutional field extraction.",
+      "summary_en": "National Uniform Billing Committee UB-04 (CMS-1450) form layout and code sets (revenue codes, condition/occurrence/value codes, FL locators). The paper/field standard whose electronic equivalent is the X12 837I; the source of truth for institutional field extraction.",
+      "summary_es": "Diseño del formulario UB-04 (CMS-1450) del National Uniform Billing Committee y sus conjuntos de códigos (revenue codes, códigos de condición/ocurrencia/valor, localizadores FL). El estándar de papel/campos cuyo equivalente electrónico es el X12 837I; fuente de verdad para la extracción de campos institucionales.",
+      "type": "Standard",
+      "status": "reference",
+      "url": "https://www.nubc.org/",
+      "domains": [
+        "claims",
+        "edi"
+      ]
+    },
+    {
+      "id": "RL-F36",
+      "jurisdiction": "Federal",
+      "category": "Claim Form Standards",
+      "citation": "NUCC CMS-1500 (02/12)",
+      "title": "NUCC CMS-1500 professional claim form",
+      "title_en": "NUCC CMS-1500 professional claim form",
+      "title_es": "Formulario profesional CMS-1500 de la NUCC",
+      "summary": "National Uniform Claim Committee CMS-1500 (02/12) form layout and item definitions (e.g. items 9 and 11 for other/primary insurance). The paper/field standard whose electronic equivalent is the X12 837P.",
+      "summary_en": "National Uniform Claim Committee CMS-1500 (02/12) form layout and item definitions (e.g. items 9 and 11 for other/primary insurance). The paper/field standard whose electronic equivalent is the X12 837P.",
+      "summary_es": "Diseño del formulario CMS-1500 (02/12) del National Uniform Claim Committee y sus definiciones de ítems (p.ej. ítems 9 y 11 para seguro primario/otro). El estándar de papel/campos cuyo equivalente electrónico es el X12 837P.",
+      "type": "Standard",
+      "status": "reference",
+      "url": "https://www.nucc.org/",
+      "domains": [
+        "claims",
+        "edi"
       ]
     }
   ]
