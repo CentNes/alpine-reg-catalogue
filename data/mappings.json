@@ -1,35 +1,278 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Rule → artifact map. Links a concrete data element / process / EDI transaction used by an Alpine app to the governing authorities (by id in authorities.json). This is the layer that gives every app the same regulatory context.",
-  "apps": ["hedis", "ub04-ocr", "mmis-835", "shared"],
+  "apps": [
+    "hedis",
+    "ub04-ocr",
+    "mmis-835",
+    "shared"
+  ],
   "mappings": [
-    { "artifact": "HEDIS measure set (Plan Vital)", "app": "hedis", "domain": "quality", "authorities": ["RL-P05", "RL-N01", "RL-P02", "RL-F13"], "notes": "Required measure set communicated by Carta Normativa 21-0217, computed per HEDIS Vol. 2." },
-    { "artifact": "Audited HEDIS results (Report 24)", "app": "hedis", "domain": "quality", "authorities": ["RL-P04", "RL-N04", "RL-P05"], "notes": "Due ~7 months after CY end per the ASES Plan Vital Reporting Guide (Attachment 12)." },
-    { "artifact": "Adult & Child Core Sets (Report 26) / EPSDT (Report 13, CMS-416)", "app": "hedis", "domain": "quality", "authorities": ["RL-F13", "RL-F14", "RL-P04"] },
-    { "artifact": "Measure software certification", "app": "hedis", "domain": "quality", "authorities": ["RL-N05", "RL-N06"] },
-    { "artifact": "IDSS + Patient-Level Data submission", "app": "hedis", "domain": "quality", "authorities": ["RL-N10", "RL-P04"] },
-    { "artifact": "Supplemental data (standard / DAV / PSV)", "app": "hedis", "domain": "quality", "authorities": ["RL-N08", "RL-N06"] },
-    { "artifact": "CAHPS & ECHO enrollee surveys", "app": "hedis", "domain": "quality", "authorities": ["RL-N09", "RL-F04"] },
-    { "artifact": "Performance Improvement Projects (PIPs)", "app": "hedis", "domain": "quality", "authorities": ["RL-F04", "RL-F07"] },
-    { "artifact": "External Quality Review (EQR/EQRO)", "app": "hedis", "domain": "quality", "authorities": ["RL-F06", "RL-F08", "RL-P07"] },
-    { "artifact": "HCIP quality withhold", "app": "hedis", "domain": "financial", "authorities": ["RL-P06", "RL-P02"] },
-    { "artifact": "Digital HEDIS (FHIR + CQL, MY2030)", "app": "hedis", "domain": "interop", "authorities": ["RL-N11", "RL-N12", "RL-N06"] },
-
-    { "artifact": "837I institutional claim transaction format", "app": "ub04-ocr", "domain": "edi", "authorities": ["RL-F25"], "notes": "HIPAA-adopted X12 standard (45 CFR Part 162)." },
-    { "artifact": "APR DRG inpatient pricing fields (POA, discharge status, DRG, covered days, ICD-10-PCS)", "app": "ub04-ocr", "domain": "claims", "authorities": ["RL-P08", "RL-P02"], "notes": "Fields the OCR must capture so the claim groups/prices correctly; see APR DRG Readiness Attestation." },
-    { "artifact": "Prompt / clean-claims payment to providers", "app": "ub04-ocr", "domain": "claims", "authorities": ["RL-P09", "RL-P15"], "notes": "PR Insurance Code Cap. 30 (Arts. 30.010–30.070), enforced by OCS." },
-    { "artifact": "PHI in scanned claims / extracted data", "app": "ub04-ocr", "domain": "privacy-security", "authorities": ["RL-F23", "RL-F24", "RL-P12"] },
-    { "artifact": "Member eligibility / enrollee identity on claim", "app": "ub04-ocr", "domain": "membership", "authorities": ["RL-F11", "RL-P02"] },
-
-    { "artifact": "835 remittance format + CARC/RARC codes", "app": "mmis-835", "domain": "edi", "authorities": ["RL-F25"], "notes": "HIPAA-adopted X12 835; new DRG-related CARC/RARC per APR DRG." },
-    { "artifact": "APR DRG payment amounts on 835 (MIA, outlier, short-stay/transfer)", "app": "mmis-835", "domain": "claims", "authorities": ["RL-P08", "RL-P02"] },
-    { "artifact": "Encounter data submission → MMIS (Report 12)", "app": "mmis-835", "domain": "encounters", "authorities": ["RL-F03", "RL-P04", "RL-P02"], "notes": "Health-information-systems requirement (42 CFR 438.242); monthly encounter reporting per the Reporting Guide." },
-    { "artifact": "Payment timeliness / adjudication timelines", "app": "mmis-835", "domain": "financial", "authorities": ["RL-P09", "RL-P15"] },
-
-    { "artifact": "PHI privacy & security safeguards (all apps)", "app": "shared", "domain": "privacy-security", "authorities": ["RL-F23", "RL-F24", "RL-P12"] },
-    { "artifact": "Member grievances & appeals", "app": "shared", "domain": "member-rights", "authorities": ["RL-F12", "RL-P10", "RL-P11"] },
-    { "artifact": "Network adequacy / access", "app": "shared", "domain": "provider", "authorities": ["RL-F10", "RL-P02"] },
-    { "artifact": "Enrollee materials, language access & transparency", "app": "shared", "domain": "member-rights", "authorities": ["RL-F11", "RL-P16"] },
-    { "artifact": "Program integrity / fraud, waste & abuse", "app": "shared", "domain": "claims", "authorities": ["RL-F09", "RL-F16"] }
+    {
+      "artifact": "HEDIS measure set (Plan Vital)",
+      "app": "hedis",
+      "domain": "quality",
+      "authorities": [
+        "RL-P05",
+        "RL-N01",
+        "RL-P02",
+        "RL-F13"
+      ],
+      "notes": "Required measure set communicated by Carta Normativa 21-0217, computed per HEDIS Vol. 2."
+    },
+    {
+      "artifact": "Audited HEDIS results (Report 24)",
+      "app": "hedis",
+      "domain": "quality",
+      "authorities": [
+        "RL-P04",
+        "RL-N04",
+        "RL-P05"
+      ],
+      "notes": "Due ~7 months after CY end per the ASES Plan Vital Reporting Guide (Attachment 12)."
+    },
+    {
+      "artifact": "Adult & Child Core Sets (Report 26) / EPSDT (Report 13, CMS-416)",
+      "app": "hedis",
+      "domain": "quality",
+      "authorities": [
+        "RL-F13",
+        "RL-F14",
+        "RL-P04"
+      ]
+    },
+    {
+      "artifact": "Measure software certification",
+      "app": "hedis",
+      "domain": "quality",
+      "authorities": [
+        "RL-N05",
+        "RL-N06"
+      ]
+    },
+    {
+      "artifact": "IDSS + Patient-Level Data submission",
+      "app": "hedis",
+      "domain": "quality",
+      "authorities": [
+        "RL-N10",
+        "RL-P04"
+      ]
+    },
+    {
+      "artifact": "Supplemental data (standard / DAV / PSV)",
+      "app": "hedis",
+      "domain": "quality",
+      "authorities": [
+        "RL-N08",
+        "RL-N06"
+      ]
+    },
+    {
+      "artifact": "CAHPS & ECHO enrollee surveys",
+      "app": "hedis",
+      "domain": "quality",
+      "authorities": [
+        "RL-N09",
+        "RL-F04"
+      ]
+    },
+    {
+      "artifact": "Performance Improvement Projects (PIPs)",
+      "app": "hedis",
+      "domain": "quality",
+      "authorities": [
+        "RL-F04",
+        "RL-F07"
+      ]
+    },
+    {
+      "artifact": "External Quality Review (EQR/EQRO)",
+      "app": "hedis",
+      "domain": "quality",
+      "authorities": [
+        "RL-F06",
+        "RL-F08",
+        "RL-P07"
+      ]
+    },
+    {
+      "artifact": "HCIP quality withhold",
+      "app": "hedis",
+      "domain": "financial",
+      "authorities": [
+        "RL-P06",
+        "RL-P02"
+      ]
+    },
+    {
+      "artifact": "Digital HEDIS (FHIR + CQL, MY2030)",
+      "app": "hedis",
+      "domain": "interop",
+      "authorities": [
+        "RL-N11",
+        "RL-N12",
+        "RL-N06"
+      ]
+    },
+    {
+      "artifact": "837I institutional claim transaction format",
+      "app": "ub04-ocr",
+      "domain": "edi",
+      "authorities": [
+        "RL-F25",
+        "RL-F28"
+      ],
+      "notes": "HIPAA-adopted X12 standard (45 CFR Part 162)."
+    },
+    {
+      "artifact": "APR DRG inpatient pricing fields (POA, discharge status, DRG, covered days, ICD-10-PCS)",
+      "app": "ub04-ocr",
+      "domain": "claims",
+      "authorities": [
+        "RL-P08",
+        "RL-P02"
+      ],
+      "notes": "Fields the OCR must capture so the claim groups/prices correctly; see APR DRG Readiness Attestation."
+    },
+    {
+      "artifact": "Prompt / clean-claims payment to providers",
+      "app": "ub04-ocr",
+      "domain": "claims",
+      "authorities": [
+        "RL-P09",
+        "RL-P15",
+        "RL-F32"
+      ],
+      "notes": "PR Insurance Code Cap. 30 (Arts. 30.010–30.070), enforced by OCS."
+    },
+    {
+      "artifact": "PHI in scanned claims / extracted data",
+      "app": "ub04-ocr",
+      "domain": "privacy-security",
+      "authorities": [
+        "RL-F23",
+        "RL-F24",
+        "RL-P12"
+      ]
+    },
+    {
+      "artifact": "Member eligibility / enrollee identity on claim",
+      "app": "ub04-ocr",
+      "domain": "membership",
+      "authorities": [
+        "RL-F11",
+        "RL-P02"
+      ]
+    },
+    {
+      "artifact": "835 remittance format + CARC/RARC codes",
+      "app": "mmis-835",
+      "domain": "edi",
+      "authorities": [
+        "RL-F25",
+        "RL-F26",
+        "RL-F27",
+        "RL-F33"
+      ],
+      "notes": "HIPAA-adopted X12 835; new DRG-related CARC/RARC per APR DRG."
+    },
+    {
+      "artifact": "APR DRG payment amounts on 835 (MIA, outlier, short-stay/transfer)",
+      "app": "mmis-835",
+      "domain": "claims",
+      "authorities": [
+        "RL-P08",
+        "RL-P02"
+      ]
+    },
+    {
+      "artifact": "Encounter data submission → MMIS (Report 12)",
+      "app": "mmis-835",
+      "domain": "encounters",
+      "authorities": [
+        "RL-F03",
+        "RL-P04",
+        "RL-P02"
+      ],
+      "notes": "Health-information-systems requirement (42 CFR 438.242); monthly encounter reporting per the Reporting Guide."
+    },
+    {
+      "artifact": "Payment timeliness / adjudication timelines",
+      "app": "mmis-835",
+      "domain": "financial",
+      "authorities": [
+        "RL-P09",
+        "RL-P15",
+        "RL-F32"
+      ]
+    },
+    {
+      "artifact": "PHI privacy & security safeguards (all apps)",
+      "app": "shared",
+      "domain": "privacy-security",
+      "authorities": [
+        "RL-F23",
+        "RL-F24",
+        "RL-P12"
+      ]
+    },
+    {
+      "artifact": "Member grievances & appeals",
+      "app": "shared",
+      "domain": "member-rights",
+      "authorities": [
+        "RL-F12",
+        "RL-P10",
+        "RL-P11"
+      ]
+    },
+    {
+      "artifact": "Network adequacy / access",
+      "app": "shared",
+      "domain": "provider",
+      "authorities": [
+        "RL-F10",
+        "RL-P02"
+      ]
+    },
+    {
+      "artifact": "Enrollee materials, language access & transparency",
+      "app": "shared",
+      "domain": "member-rights",
+      "authorities": [
+        "RL-F11",
+        "RL-P16"
+      ]
+    },
+    {
+      "artifact": "Program integrity / fraud, waste & abuse",
+      "app": "shared",
+      "domain": "claims",
+      "authorities": [
+        "RL-F09",
+        "RL-F16"
+      ]
+    },
+    {
+      "artifact": "999 / 277CA acknowledgments (837 intake)",
+      "app": "shared",
+      "domain": "edi",
+      "authorities": [
+        "RL-F30",
+        "RL-F31"
+      ],
+      "notes": "Syntactic (999) and claim-level (277CA) acknowledgments returned for a submitted 837."
+    },
+    {
+      "artifact": "837P professional claim transaction format",
+      "app": "ub04-ocr",
+      "domain": "edi",
+      "authorities": [
+        "RL-F25",
+        "RL-F29"
+      ],
+      "notes": "For CMS-1500 / professional lines when handled alongside institutional."
+    }
   ]
 }
