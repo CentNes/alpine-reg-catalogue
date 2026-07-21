@@ -1,3 +1,6 @@
 node_modules/
 *.log
 .DS_Store
+
+# Federal Register watcher output (generated fresh each run / uploaded as CI artifact)
+data/reg-watch/

@@ -1,0 +1,90 @@
+name: Federal Register watch
+
+# Stage 2, increment 1: automated regulatory watcher. Weekly, scans the Federal
+# Register for final/proposed rules touching the CFR parts this catalogue cites,
+# correlates them to authority ids, and opens/updates a triage issue. The repo
+# stays the source of record — a human turns a finding into a PR when warranted.
+
+on:
+  schedule:
+    - cron: '0 12 * * 1' # Mondays 12:00 UTC
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Lookback window in days'
+        required: false
+        default: '30'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Federal Register watcher
+        run: node scripts/fedreg-watch.mjs --days "${{ github.event.inputs.days || '30' }}"
+
+      - name: Upload proposals artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: reg-watch-proposals
+          path: data/reg-watch/latest.json
+
+      - name: Open or update triage issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('data/reg-watch/latest.json', 'utf8'));
+            const MARKER = '<!-- fedreg-watch -->';
+            const LABEL = 'reg-watch';
+
+            if (report.finding_count === 0) {
+              core.info('No findings in window; not opening an issue.');
+              return;
+            }
+
+            // ensure the label exists
+            try {
+              await github.rest.issues.createLabel({ ...context.repo, name: LABEL, color: '0e8a16',
+                description: 'Automated Federal Register watcher findings' });
+            } catch (e) { /* already exists */ }
+
+            const lines = [];
+            lines.push(MARKER);
+            lines.push(`### Federal Register watch — ${report.finding_count} finding(s)`);
+            lines.push(`Window: since **${report.since}** (${report.lookback_days}d) · generated ${report.generated_at.slice(0,10)}`);
+            lines.push('');
+            lines.push('CFR targets watched: ' + report.cfr_targets.map(t => `${t.title} CFR ${t.part}`).join(', '));
+            lines.push('');
+            lines.push('| Date | Type | Document | Affects |');
+            lines.push('|---|---|---|---|');
+            for (const f of report.findings) {
+              const title = f.title.replace(/\|/g, '\\|').slice(0, 90);
+              lines.push(`| ${f.publication_date} | ${f.type_label} | [${title}](${f.html_url}) | ${f.affects.join(', ')} |`);
+            }
+            lines.push('');
+            lines.push('_Triage: for each finding, decide whether the affected authority needs a summary/url/status update — if so, open a PR against `data/authorities.json`. This issue is regenerated on each run._');
+            const body = lines.join('\n');
+
+            // find an existing open watcher issue by marker
+            const existing = await github.rest.issues.listForRepo({ ...context.repo, state: 'open',
+              labels: LABEL, per_page: 20 });
+            const mine = existing.data.find(i => (i.body || '').includes(MARKER));
+
+            const title = `Federal Register watch — ${report.finding_count} finding(s) as of ${report.generated_at.slice(0,10)}`;
+            if (mine) {
+              await github.rest.issues.update({ ...context.repo, issue_number: mine.number, title, body });
+              core.info(`Updated issue #${mine.number}`);
+            } else {
+              const created = await github.rest.issues.create({ ...context.repo, title, body, labels: [LABEL] });
+              core.info(`Opened issue #${created.data.number}`);
+            }

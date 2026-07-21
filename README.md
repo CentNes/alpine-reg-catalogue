@@ -83,12 +83,37 @@ reviewable update.
 - Prefer **adding a mapping** over hardcoding a citation in an app.
 - Never invent citations/section numbers; include the `url` to the authoritative source.
 
+## Federal Register watcher (Stage 2 · increment 1)
+
+`scripts/fedreg-watch.mjs` scans the public [Federal Register API](https://www.federalregister.gov/developers/documentation/api/v1)
+for **final + proposed rules** touching the CFR parts this catalogue's Federal
+authorities cite (42 CFR 437/438/441/447, 45 CFR 162/164), and correlates each
+document back to the affected authority `id`(s).
+
+```bash
+node scripts/fedreg-watch.mjs --days 30   # writes data/reg-watch/latest.json + prints a summary
+```
+
+The `.github/workflows/fedreg-watch.yml` Action runs it weekly (and on demand),
+uploads the proposals as an artifact, and **opens/updates a single `reg-watch`
+triage issue** when there are findings. The repo stays the source of record: a
+human turns a finding into a PR against `data/authorities.json` when an
+authority's summary/url/status actually needs updating.
+
+> Correlation is part-level: a rule modifying one section of 42 CFR 438 flags
+> every authority citing Part 438 (RL-F01…F12). The human triages which are
+> genuinely affected. Section-level precision is a later refinement.
+
 ## Roadmap
-- **Stage 1 (this repo):** shared data package — apps vendor it in. *(current)*
-- **Stage 2 (later):** promote to a live **Regulatory Knowledge Service** (API +
-  DB) with editing, an automatic **Federal Register** watcher, and audit — the
-  HEDIS app's Regulatory Library / Regulatory Monitor is the working v0 of that
-  service and would be lifted here when the platform consolidates.
+- **Stage 1:** shared data package — apps vendor it in. *(done)*
+- **Stage 2 — live Regulatory Knowledge Service.** The catalogue git repo stays
+  the **source of record**; the service is the automated authoring + monitoring
+  layer that publishes to it.
+  - **1. Federal Register watcher** — scheduled scan → triage issue. *(current)*
+  - **2. API + DB** — authorities in a database with versioned CRUD endpoints.
+  - **3. Editing UI / Monitor** — lift the HEDIS Regulatory Library / Regulatory
+    Monitor (its working v0) into the shared admin surface; watcher proposals
+    become reviewable edits with audit; approved changes publish a catalogue PR.
 
 ---
 *Sources are public authorities (eCFR, docs.pr.gov, NCQA). This catalogue is a
