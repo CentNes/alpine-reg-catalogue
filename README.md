@@ -104,16 +104,46 @@ authority's summary/url/status actually needs updating.
 > every authority citing Part 438 (RL-F01…F12). The human triages which are
 > genuinely affected. Section-level precision is a later refinement.
 
+## Knowledge Service — API + DB (Stage 2 · increment 2)
+
+`service/` is a dependency-free authoring service: an embedded SQLite store
+(`node:sqlite`) seeded from the catalogue JSON, with a JSON HTTP API
+(`node:http`). The DB is the editing surface; **the git repo stays the source of
+record** — `POST /v1/publish` writes the DB back out to `data/*.json` so a human
+commits/PRs the change.
+
+```bash
+npm run service        # API on http://localhost:7817 (seeds from data/ on boot)
+npm run service:test   # 10 checks: seed, CRUD, validation, audit, publish round-trip
+```
+
+| Method | Route | Notes |
+|---|---|---|
+| GET | `/v1/health` | |
+| GET | `/v1/authorities?jurisdiction=&domain=&status=&q=` | filtered list |
+| GET | `/v1/authorities/:id` | one (bilingual) |
+| POST | `/v1/authorities` | create — `x-actor` header required |
+| PATCH | `/v1/authorities/:id` | update fields — bumps `revision`, audited |
+| POST | `/v1/authorities/:id/retire` | soft-retire (`status=retired`) |
+| GET | `/v1/mappings` · `/v1/audit` | |
+| GET | `/v1/proposals` | Federal Register watcher findings |
+| POST | `/v1/publish` | write DB → `data/*.json` (source of record) |
+
+Writes require an `x-actor` header, recorded in the audit trail (before/after +
+revision). Validation mirrors `scripts/validate.js` (id shape, jurisdiction,
+domains, status).
+
 ## Roadmap
 - **Stage 1:** shared data package — apps vendor it in. *(done)*
 - **Stage 2 — live Regulatory Knowledge Service.** The catalogue git repo stays
   the **source of record**; the service is the automated authoring + monitoring
   layer that publishes to it.
-  - **1. Federal Register watcher** — scheduled scan → triage issue. *(current)*
-  - **2. API + DB** — authorities in a database with versioned CRUD endpoints.
+  - **1. Federal Register watcher** — scheduled scan → triage issue. *(done)*
+  - **2. API + DB** — SQLite store + JSON API, versioned CRUD, audit, publish. *(done)*
   - **3. Editing UI / Monitor** — lift the HEDIS Regulatory Library / Regulatory
-    Monitor (its working v0) into the shared admin surface; watcher proposals
-    become reviewable edits with audit; approved changes publish a catalogue PR.
+    Monitor (its working v0) onto this API as the shared admin surface; watcher
+    proposals become reviewable edits with audit; approved changes publish a
+    catalogue PR.
 
 ---
 *Sources are public authorities (eCFR, docs.pr.gov, NCQA). This catalogue is a

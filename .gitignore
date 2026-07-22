@@ -4,3 +4,7 @@ node_modules/
 
 # Federal Register watcher output (generated fresh each run / uploaded as CI artifact)
 data/reg-watch/
+
+# Knowledge Service local DB (seeded from the catalogue json on boot)
+service/*.db
+service/*.db-*

@@ -9,7 +9,10 @@
     "schema/"
   ],
   "scripts": {
-    "validate": "node scripts/validate.js"
+    "validate": "node scripts/validate.js",
+    "watch:fedreg": "node scripts/fedreg-watch.mjs",
+    "service": "node service/server.mjs",
+    "service:test": "node service/test.mjs"
   },
   "keywords": [
     "medicaid",
