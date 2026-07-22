@@ -26,7 +26,7 @@ import * as store from './db.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 7817;
-const db = store.open();
+const db = store.open(process.env.DB_PATH || undefined);
 const seed = store.seedFromJson(db);
 if (seed.seeded) console.error(`[service] seeded ${seed.authorities} authorities, ${seed.mappings} mappings`);
 

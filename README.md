@@ -173,8 +173,29 @@ data files to LF so a publish PR shows only the authorities that actually change
     reviewable edits with audit → publish → catalogue PR). *(done)*
 
 Stage 2 is functionally complete: **watcher → review/edit → publish → PR → apps
-bump the submodule.** Remaining is deployment (host the service + a token for the
-publish PR) and, optionally, pointing the HEDIS Monitor UI at these endpoints.
+bump the submodule.**
+
+## Deploy
+
+The service is containerized (`Dockerfile`, Node 24, no third-party deps). The
+SQLite DB is a **cache re-seeded from `data/` on every boot** — git is the source
+of record — so the container is effectively stateless and needs **no persistent
+volume**; it runs on any container host (Render / Railway / Fly / a VM).
+
+```bash
+docker build -t reg-catalogue .
+docker run -p 7817:7817 reg-catalogue      # admin UI at :7817/admin
+```
+
+Env: `PORT` (default 7817), `DB_PATH` (default `/tmp/catalogue.db`).
+
+Two steps are **operator-owned** (accounts + secrets — not automatable here):
+1. **Pick a host** and point it at this repo (any Docker host works; Vercel is a
+   poor fit — this is a stateful long-running server, unlike the consumer apps).
+2. **Publish token** — opening the catalogue PR (`scripts/publish-pr.mjs --open`)
+   needs a GitHub token with `repo` scope. Run it in CI with the built-in
+   `GITHUB_TOKEN`, or give the host a `GH_TOKEN` secret. The *running service*
+   never needs GitHub write access — only the publish step does.
 
 ---
 *Sources are public authorities (eCFR, docs.pr.gov, NCQA). This catalogue is a
