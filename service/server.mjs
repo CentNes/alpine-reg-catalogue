@@ -19,8 +19,12 @@
 //   POST /v1/publish                (write DB -> data/*.json; body {bump?})
 
 import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import * as store from './db.mjs';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 7817;
 const db = store.open();
 const seed = store.seedFromJson(db);
@@ -45,6 +49,13 @@ const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://localhost:${PORT}`);
     const parts = url.pathname.split('/').filter(Boolean); // ['v1','authorities',':id']
     const actor = req.headers['x-actor'];
+
+    // Admin UI (static)
+    if (req.method === 'GET' && (url.pathname === '/' || url.pathname === '/admin')) {
+      const html = fs.readFileSync(path.join(__dirname, 'public', 'admin.html'));
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      return res.end(html);
+    }
 
     if (req.method === 'GET' && url.pathname === '/v1/health') return send(res, 200, { ok: true, service: 'reg-catalogue', authorities: store.listAuthorities(db).length });
 

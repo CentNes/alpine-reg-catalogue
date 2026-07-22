@@ -12,7 +12,8 @@
     "validate": "node scripts/validate.js",
     "watch:fedreg": "node scripts/fedreg-watch.mjs",
     "service": "node service/server.mjs",
-    "service:test": "node service/test.mjs"
+    "service:test": "node service/test.mjs",
+    "publish:pr": "node scripts/publish-pr.mjs"
   },
   "keywords": [
     "medicaid",

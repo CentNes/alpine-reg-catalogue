@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Regulatory Knowledge Service — Admin</title>
+<style>
+  :root { --bg:#f7f8fa; --card:#fff; --line:#e3e6ea; --ink:#1b1f24; --mut:#6b7280; --pri:#0e6ba8; --ok:#0e8a16; --warn:#b45309; --chip:#eef2f7; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+  header { background:var(--card); border-bottom:1px solid var(--line); padding:12px 20px; display:flex; align-items:center; gap:16px; position:sticky; top:0; z-index:5; }
+  header h1 { font-size:15px; margin:0; }
+  header .meta { color:var(--mut); font-size:12px; }
+  header .grow { flex:1; }
+  button { font:inherit; border:1px solid var(--line); background:var(--card); border-radius:6px; padding:6px 10px; cursor:pointer; }
+  button.pri { background:var(--pri); color:#fff; border-color:var(--pri); }
+  button:disabled { opacity:.5; cursor:default; }
+  .tabs { display:flex; gap:4px; padding:12px 20px 0; }
+  .tabs button { border-bottom:2px solid transparent; border-radius:6px 6px 0 0; }
+  .tabs button.active { border-bottom-color:var(--pri); color:var(--pri); font-weight:600; }
+  main { padding:16px 20px 40px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; margin-bottom:12px; }
+  .row { display:flex; gap:10px; align-items:baseline; }
+  .id { font-family:ui-monospace,monospace; font-weight:600; color:var(--pri); }
+  .chip { display:inline-block; background:var(--chip); border-radius:20px; padding:1px 9px; font-size:12px; font-family:ui-monospace,monospace; margin:1px 2px; text-decoration:none; color:var(--ink); }
+  .chip:hover { background:#dde6f0; }
+  .mut { color:var(--mut); font-size:12px; }
+  input, textarea, select { font:inherit; width:100%; padding:6px 8px; border:1px solid var(--line); border-radius:6px; }
+  label { display:block; font-size:12px; color:var(--mut); margin:8px 0 2px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .search { padding:6px 8px; border:1px solid var(--line); border-radius:6px; width:280px; }
+  table { width:100%; border-collapse:collapse; }
+  td, th { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--mut); font-weight:600; font-size:12px; }
+  .pill { font-size:11px; padding:1px 7px; border-radius:20px; background:var(--chip); }
+  .pill.mandate{ background:#e7f6e9; color:var(--ok);} .pill.retired{ background:#fde8e8; color:#b91c1c;} .pill.licensed{ background:#fef3c7; color:var(--warn);}
+  .banner { padding:8px 12px; border-radius:6px; margin-bottom:10px; font-size:13px; display:none; }
+  .banner.ok { background:#e7f6e9; color:var(--ok); display:block; } .banner.err { background:#fde8e8; color:#b91c1c; display:block; }
+  dialog { border:1px solid var(--line); border-radius:10px; padding:0; width:min(680px,94vw); }
+  dialog form { padding:16px; } dialog h3 { margin:0 0 4px; }
+  .lang { font-size:11px; color:var(--mut); }
+</style>
+</head>
+<body>
+<header>
+  <h1>🗂️ Regulatory Knowledge Service</h1>
+  <span class="meta" id="meta">…</span>
+  <span class="grow"></span>
+  <label class="lang" style="margin:0">actor <input id="actor" value="admin" style="width:110px;display:inline-block"></label>
+  <label class="lang" style="margin:0">idioma
+    <select id="lang" style="width:auto;display:inline-block"><option value="es">ES</option><option value="en">EN</option></select>
+  </label>
+</header>
+<div class="tabs">
+  <button data-tab="authorities" class="active">Autoridades</button>
+  <button data-tab="proposals">Propuestas del watcher</button>
+  <button data-tab="audit">Auditoría</button>
+</div>
+<main>
+  <div id="banner" class="banner"></div>
+
+  <section data-panel="authorities">
+    <div class="row" style="margin-bottom:10px">
+      <input class="search" id="search" placeholder="Buscar cita / título / resumen…">
+      <select id="fjur" style="width:auto"><option value="">Jurisdicción: todas</option><option>Federal</option><option>PR Local</option><option>NCQA</option></select>
+      <span class="grow"></span>
+      <button class="pri" id="publishBtn" title="Escribe la DB a data/*.json (fuente de record) para abrir un PR">Publicar → catálogo</button>
+    </div>
+    <div class="card" style="padding:0"><table><thead><tr><th>ID</th><th>Cita</th><th>Título</th><th>Estado</th><th>Rev</th></tr></thead><tbody id="authRows"></tbody></table></div>
+  </section>
+
+  <section data-panel="proposals" hidden>
+    <p class="mut" id="propMeta"></p>
+    <div id="propList"></div>
+  </section>
+
+  <section data-panel="audit" hidden>
+    <div class="card" style="padding:0"><table><thead><tr><th>#</th><th>Cuándo</th><th>Actor</th><th>Acción</th><th>Autoridad</th><th>Cambio</th></tr></thead><tbody id="auditRows"></tbody></table></div>
+  </section>
+</main>
+
+<dialog id="editor"><form method="dialog">
+  <h3><span class="id" id="edId"></span> <span id="edCite" class="mut"></span></h3>
+  <div class="grid2">
+    <div><label>Título (ES)</label><input id="ed_title_es"></div>
+    <div><label>Título (EN)</label><input id="ed_title_en"></div>
+  </div>
+  <label>Resumen (ES)</label><textarea id="ed_summary_es" rows="3"></textarea>
+  <label>Resumen (EN)</label><textarea id="ed_summary_en" rows="3"></textarea>
+  <div class="grid2">
+    <div><label>Estado</label><select id="ed_status"><option>mandate</option><option>licensed</option><option>guidance</option><option>reference</option><option>retired</option></select></div>
+    <div><label>URL</label><input id="ed_url"></div>
+  </div>
+  <div class="row" style="margin-top:14px">
+    <button type="button" class="pri" id="saveBtn">Guardar (PATCH)</button>
+    <button type="button" id="cancelBtn">Cancelar</button>
+    <span class="grow"></span><span class="mut" id="edRev"></span>
+  </div>
+</form></dialog>
+
+<script>
+const $ = s => document.querySelector(s);
+const api = (p, opt) => fetch(p, opt).then(async r => { const j = await r.json().catch(()=>({})); if(!r.ok) throw new Error(j.error||r.status); return j; });
+let LANG = 'es';
+const banner = (msg, ok=true) => { const b=$('#banner'); b.textContent=msg; b.className='banner '+(ok?'ok':'err'); setTimeout(()=>b.className='banner',4000); };
+const T = a => LANG==='es' ? (a.title_es||a.title||'') : (a.title_en||a.title||'');
+
+async function loadMeta(){ const h=await api('/v1/health'); $('#meta').textContent = `${h.authorities} autoridades · v${(await api('/v1/mappings')).items.length} mapeos`; }
+
+async function loadAuthorities(){
+  const q = new URLSearchParams(); const s=$('#search').value.trim(); if(s) q.set('q',s); const j=$('#fjur').value; if(j) q.set('jurisdiction',j);
+  const { items } = await api('/v1/authorities?'+q);
+  $('#authRows').innerHTML = items.map(a=>`<tr data-id="${a.id}" style="cursor:pointer">
+    <td class="id">${a.id}</td><td>${a.citation||''}</td><td>${T(a)}</td>
+    <td><span class="pill ${a.status||''}">${a.status||''}</span></td><td>${a.revision}</td></tr>`).join('');
+  $('#authRows').querySelectorAll('tr').forEach(tr=>tr.onclick=()=>openEditor(tr.dataset.id));
+}
+
+async function openEditor(id){
+  const a = await api('/v1/authorities/'+id);
+  $('#edId').textContent=a.id; $('#edCite').textContent=a.citation||''; $('#edRev').textContent='revisión '+a.revision;
+  ed_title_es.value=a.title_es||''; ed_title_en.value=a.title_en||''; ed_summary_es.value=a.summary_es||''; ed_summary_en.value=a.summary_en||'';
+  ed_status.value=a.status||'reference'; ed_url.value=a.url||'';
+  $('#saveBtn').onclick=async()=>{
+    try{ const patch={ title_es:ed_title_es.value, title_en:ed_title_en.value, summary_es:ed_summary_es.value, summary_en:ed_summary_en.value, status:ed_status.value, url:ed_url.value };
+      const upd=await api('/v1/authorities/'+id,{method:'PATCH',headers:{'Content-Type':'application/json','x-actor':$('#actor').value||'admin'},body:JSON.stringify(patch)});
+      banner(`${id} guardado → revisión ${upd.revision}`); $('#editor').close(); loadAuthorities();
+    }catch(e){ banner('Error: '+e.message,false); }
+  };
+  $('#cancelBtn').onclick=()=>$('#editor').close();
+  $('#editor').showModal();
+}
+
+async function loadProposals(){
+  const p = await api('/v1/proposals');
+  $('#propMeta').textContent = p.finding_count? `${p.finding_count} hallazgo(s) del Federal Register · ventana desde ${p.since}` : 'Sin propuestas en la ventana actual. (Corre el watcher: npm run watch:fedreg)';
+  $('#propList').innerHTML = (p.findings||[]).map(f=>`<div class="card">
+    <div class="row"><span class="pill">${f.type_label}</span><span class="mut">${f.publication_date}</span></div>
+    <div style="margin:4px 0"><a href="${f.html_url}" target="_blank" rel="noopener">${f.title}</a></div>
+    <div>Afecta: ${(f.affects||[]).map(id=>`<a class="chip" data-edit="${id}">${id}</a>`).join('')}</div>
+  </div>`).join('');
+  $('#propList').querySelectorAll('[data-edit]').forEach(el=>el.onclick=e=>{e.preventDefault();openEditor(el.dataset.edit);});
+}
+
+async function loadAudit(){
+  const { items } = await api('/v1/audit?limit=50');
+  $('#auditRows').innerHTML = items.map(a=>{
+    let chg=''; if(a.before&&a.after){ const keys=Object.keys(a.after).filter(k=>JSON.stringify(a.before[k])!==JSON.stringify(a.after[k])&&k!=='revision'&&k!=='updated_at'); chg=keys.join(', '); }
+    else if(!a.before) chg='(creado)';
+    return `<tr><td>${a.seq}</td><td class="mut">${(a.ts||'').replace('T',' ').slice(0,19)}</td><td>${a.actor}</td><td>${a.action}</td><td class="id">${a.entity_id}</td><td class="mut">${chg}</td></tr>`;
+  }).join('');
+}
+
+$('#publishBtn').onclick=async()=>{
+  if(!confirm('Escribir la DB a data/authorities.json + mappings.json (fuente de record)? Luego abre el PR con: node scripts/publish-pr.mjs')) return;
+  try{ const r=await api('/v1/publish',{method:'POST',headers:{'Content-Type':'application/json','x-actor':$('#actor').value||'admin'},body:'{}'});
+    banner(`Publicado: ${r.authorities} autoridades v${r.version} → data/*.json. Abre el PR con scripts/publish-pr.mjs.`);
+  }catch(e){ banner('Error: '+e.message,false); }
+};
+
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('active',x===b));
+  document.querySelectorAll('[data-panel]').forEach(p=>p.hidden = p.dataset.panel!==b.dataset.tab);
+  ({authorities:loadAuthorities, proposals:loadProposals, audit:loadAudit})[b.dataset.tab]();
+});
+$('#search').oninput = () => loadAuthorities();
+$('#fjur').onchange = () => loadAuthorities();
+$('#lang').onchange = e => { LANG=e.target.value; loadAuthorities(); };
+
+loadMeta(); loadAuthorities();
+</script>
+</body>
+</html>

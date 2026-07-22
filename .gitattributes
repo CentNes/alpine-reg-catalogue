@@ -1,0 +1,5 @@
+# Keep catalogue data line-stable so Knowledge Service publish PRs show only
+# the authorities that actually changed (never a whole-file CRLF/LF churn).
+*.json text eol=lf
+*.mjs  text eol=lf
+*.js   text eol=lf

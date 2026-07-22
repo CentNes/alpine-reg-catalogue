@@ -133,6 +133,35 @@ Writes require an `x-actor` header, recorded in the audit trail (before/after +
 revision). Validation mirrors `scripts/validate.js` (id shape, jurisdiction,
 domains, status).
 
+## Admin surface + publish loop (Stage 2 · increment 3)
+
+The service serves an admin UI at **`/admin`** (bilingual EN/ES) with three tabs:
+**Autoridades** (searchable list → click to edit an authority, PATCH by `x-actor`),
+**Propuestas del watcher** (the Federal Register findings, each with its affected
+authority ids as clickable chips that jump straight to the editor), and
+**Auditoría** (the change trail). This is the HEDIS Regulatory Monitor pattern
+lifted onto the shared API — HEDIS can later point its Monitor at the same
+endpoints instead of its own store.
+
+**The loop that closes it:**
+
+```
+Federal Register watcher → /v1/proposals → admin review/edit (audited)
+   → POST /v1/publish (DB → data/*.json) → node scripts/publish-pr.mjs
+   → PR against the catalogue → apps bump the submodule
+```
+
+`scripts/publish-pr.mjs` turns the published working-tree change into a PR:
+
+```bash
+node scripts/publish-pr.mjs            # dry run: prints branch, diffstat, planned commands
+node scripts/publish-pr.mjs --open --version 1.1.4 --actor nestor   # opens the PR via gh
+```
+
+It only ever stages `data/authorities.json` + `data/mappings.json` (never
+`git add -A`), and restores the base branch afterward. `.gitattributes` pins the
+data files to LF so a publish PR shows only the authorities that actually changed.
+
 ## Roadmap
 - **Stage 1:** shared data package — apps vendor it in. *(done)*
 - **Stage 2 — live Regulatory Knowledge Service.** The catalogue git repo stays
@@ -140,10 +169,12 @@ domains, status).
   layer that publishes to it.
   - **1. Federal Register watcher** — scheduled scan → triage issue. *(done)*
   - **2. API + DB** — SQLite store + JSON API, versioned CRUD, audit, publish. *(done)*
-  - **3. Editing UI / Monitor** — lift the HEDIS Regulatory Library / Regulatory
-    Monitor (its working v0) onto this API as the shared admin surface; watcher
-    proposals become reviewable edits with audit; approved changes publish a
-    catalogue PR.
+  - **3. Editing UI / Monitor** — admin surface at `/admin` (watcher proposals →
+    reviewable edits with audit → publish → catalogue PR). *(done)*
+
+Stage 2 is functionally complete: **watcher → review/edit → publish → PR → apps
+bump the submodule.** Remaining is deployment (host the service + a token for the
+publish PR) and, optionally, pointing the HEDIS Monitor UI at these endpoints.
 
 ---
 *Sources are public authorities (eCFR, docs.pr.gov, NCQA). This catalogue is a
