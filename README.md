@@ -53,7 +53,7 @@ artifact to its governing authorities — e.g.:
 
 **Node app** (HEDIS and future JS services): read the JSON directly.
 ```js
-const { authorities } = require('vendor/alpine-reg-catalogue/data/authorities.json');
+const { authorities } = require('./vendor/alpine-reg-catalogue/data/authorities.json');
 const claims = authorities.filter(a => a.domains.includes('claims'));
 const byId = Object.fromEntries(authorities.map(a => [a.id, a]));  // byId['RL-P05']
 ```

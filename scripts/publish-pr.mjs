@@ -74,6 +74,8 @@ git(`add ${FILES.join(' ')}`);
 execSync(`git commit -m ${JSON.stringify(title)}`, { cwd: ROOT, stdio: 'inherit' });
 git(`push -u origin ${branch}`);
 try {
+  // ponytail: execFile (no shell) so the multi-line body's backticks/quotes can't inject.
+  // Ceiling: gh must be a real exe on PATH (CI Linux / gh.exe here), not a .cmd/.bat shim.
   const out = execFileSync('gh', ['pr', 'create', '--base', base, '--head', branch, '--title', title, '--body', body], { cwd: ROOT, encoding: 'utf8' });
   console.log(out.trim());
 } finally {
