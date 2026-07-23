@@ -74,7 +74,7 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'GET' && url.pathname === '/v1/mappings') return send(res, 200, { items: store.listMappings(db) });
     if (req.method === 'GET' && url.pathname === '/v1/proposals') return send(res, 200, store.proposals());
     if (req.method === 'GET' && url.pathname === '/v1/audit') return send(res, 200, { items: store.listAudit(db, { limit: parseInt(url.searchParams.get('limit') || '100', 10) }) });
-    if (req.method === 'POST' && url.pathname === '/v1/publish') { if (!actor) return send(res, 401, { error: 'x-actor header required' }); const body = await readBody(req); const r = store.publishToJson(db, { bump: body.bump }); store.listAudit; return send(res, 200, { published: true, ...r }); }
+    if (req.method === 'POST' && url.pathname === '/v1/publish') { if (!actor) return send(res, 401, { error: 'x-actor header required' }); const body = await readBody(req); const r = store.publishToJson(db, { bump: body.bump }); return send(res, 200, { published: true, ...r }); }
 
     return send(res, 404, { error: 'no route', method: req.method, path: url.pathname });
   } catch (err) {

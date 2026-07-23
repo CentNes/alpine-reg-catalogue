@@ -10,7 +10,7 @@
 //
 // Only ever stages data/authorities.json + data/mappings.json — never `git add -A`.
 
-import { execSync } from 'node:child_process';
+import { execSync, execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -73,13 +73,10 @@ git(`switch -c ${branch}`);
 git(`add ${FILES.join(' ')}`);
 execSync(`git commit -m ${JSON.stringify(title)}`, { cwd: ROOT, stdio: 'inherit' });
 git(`push -u origin ${branch}`);
-const bodyFile = path.join(ROOT, '.pr-body.tmp');
-execSync(`node -e "require('fs').writeFileSync(${JSON.stringify(bodyFile)}, ${JSON.stringify(body)})"`, { cwd: ROOT });
 try {
-  const out = execSync(`gh pr create --base ${base} --head ${branch} --title ${JSON.stringify(title)} --body-file ${JSON.stringify(bodyFile)}`, { cwd: ROOT, encoding: 'utf8' });
+  const out = execFileSync('gh', ['pr', 'create', '--base', base, '--head', branch, '--title', title, '--body', body], { cwd: ROOT, encoding: 'utf8' });
   console.log(out.trim());
 } finally {
-  execSync(`node -e "require('fs').rmSync(${JSON.stringify(bodyFile)},{force:true})"`, { cwd: ROOT });
   git(`switch ${base}`);
 }
 console.log('PR opened. The base branch working tree is restored.');

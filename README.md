@@ -15,7 +15,6 @@ of keeping its own divergent copy.
 data/authorities.json   65 canonical authorities (federal / PR-local / NCQA), domain-tagged, bilingual (EN/ES)
 data/mappings.json      rule → artifact map: which authority governs which data element / process / transaction
 schema/authority.schema.json   JSON Schema for one authority
-index.js                Node helper (byId, byDomain, byJurisdiction, mappingsForApp, authoritiesForArtifact)
 ```
 
 ### Authority record
@@ -52,16 +51,11 @@ artifact to its governing authorities — e.g.:
 
 ## How to consume
 
-**Node app** (HEDIS and future JS services):
-```bash
-npm install github:CentNes/alpine-reg-catalogue   # or add as a git submodule
-```
+**Node app** (HEDIS and future JS services): read the JSON directly.
 ```js
-const reg = require('@alpine/reg-catalogue');
-reg.byDomain('claims');                    // authorities relevant to claims
-reg.byId('RL-P05');                        // Carta Normativa 21-0217
-reg.mappingsForApp('ub04-ocr');            // this app's rule→artifact map (+ shared)
-reg.authoritiesForArtifact('POA');         // governing authorities for a POA field
+const { authorities } = require('vendor/alpine-reg-catalogue/data/authorities.json');
+const claims = authorities.filter(a => a.domains.includes('claims'));
+const byId = Object.fromEntries(authorities.map(a => [a.id, a]));  // byId['RL-P05']
 ```
 
 **Python app** (UB-04 OCR, MMIS 835 — FastAPI): read the JSON directly.
@@ -72,9 +66,8 @@ authorities = json.loads((CAT/"data/authorities.json").read_text())["authorities
 claims = [a for a in authorities if "claims" in a["domains"]]
 ```
 
-**Recommended integration:** add this repo as a **git submodule** under `vendor/`
-(or install as an npm dependency for JS). Pin a version; bump when the catalogue
-releases. That keeps every app on the same authoritative set with an explicit,
+**Recommended integration:** add this repo as a **git submodule** under `vendor/`.
+Pin a version; bump when the catalogue releases. That keeps every app on the same authoritative set with an explicit,
 reviewable update.
 
 ## Governance
