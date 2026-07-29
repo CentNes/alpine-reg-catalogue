@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "properties": {
     "id": { "type": "string", "pattern": "^RL-[A-Z]\\d{2,}$", "description": "Stable canonical id, e.g. RL-F01 (Federal), RL-P05 (PR Local), RL-N01 (NCQA)." },
-    "jurisdiction": { "type": "string", "enum": ["Federal", "PR Local", "NCQA"] },
+    "jurisdiction": { "type": "string", "enum": ["Federal", "PR Local", "NCQA", "Vendor"] },
     "category": { "type": "string" },
     "citation": { "type": "string", "description": "Formal citation, e.g. '42 CFR §438.330', 'Carta Normativa 21-0217'." },
     "title": { "type": "string", "description": "Canonical title (English for federal/NCQA; Spanish for PR statutes, matching their official name)." },
@@ -22,7 +22,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["managed-care", "quality", "claims", "encounters", "membership", "pharmacy", "edi", "privacy-security", "financial", "provider", "member-rights", "behavioral-health", "interop", "contract", "cms", "regulator", "transparency", "general"]
+        "enum": ["managed-care", "quality", "claims", "encounters", "membership", "pharmacy", "edi", "privacy-security", "financial", "provider", "member-rights", "behavioral-health", "interop", "contract", "cms", "regulator", "transparency", "utilization-management", "general"]
       },
       "description": "Operational domains this authority governs. Apps filter by domain but share this catalogue."
     }

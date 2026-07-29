@@ -12,7 +12,7 @@ of keeping its own divergent copy.
 
 ## What's here
 ```
-data/authorities.json   65 canonical authorities (federal / PR-local / NCQA), domain-tagged, bilingual (EN/ES)
+data/authorities.json   66 canonical authorities (federal / PR-local / NCQA / vendor), domain-tagged, bilingual (EN/ES)
 data/mappings.json      rule → artifact map: which authority governs which data element / process / transaction
 schema/authority.schema.json   JSON Schema for one authority
 ```
@@ -32,14 +32,14 @@ schema/authority.schema.json   JSON Schema for one authority
   "domains": ["contract","quality","claims","membership","encounters"]
 }
 ```
-**ID scheme:** `RL-F##` Federal · `RL-P##` PR Local · `RL-N##` NCQA. IDs are stable — apps reference the id.
+**ID scheme:** `RL-F##` Federal · `RL-P##` PR Local · `RL-N##` NCQA · `RL-V##` Vendor (commercial standards, e.g. MCG Care Guidelines). IDs are stable — apps reference the id.
 
 **Bilingual (EN/ES):** every authority carries `title_en` / `title_es` and `summary_en` / `summary_es` so bilingual apps (all Alpine apps) render either language from one source. `title` / `summary` remain the canonical fields (English, except PR statutes keep their official Spanish name) for backward-compatible consumers.
 
 **Domains** (an app filters to what it needs, but shares the same source):
 `managed-care · quality · claims · encounters · membership · pharmacy · edi ·
 privacy-security · financial · provider · member-rights · behavioral-health ·
-interop · contract · cms · regulator · transparency`
+interop · contract · cms · regulator · transparency · utilization-management`
 
 ### Rule → artifact map (`mappings.json`)
 The layer that closes the cross-app context gaps. Each entry links a concrete

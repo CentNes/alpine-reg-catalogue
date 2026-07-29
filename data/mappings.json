@@ -1,11 +1,12 @@
 {
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "Rule → artifact map. Links a concrete data element / process / EDI transaction used by an Alpine app to the governing authorities (by id in authorities.json).",
   "apps": [
     "hedis",
     "ub04-ocr",
     "mmis-835",
-    "shared"
+    "shared",
+    "prior-auth"
   ],
   "mappings": [
     {
@@ -286,6 +287,16 @@
         "RL-F29"
       ],
       "notes": "Paper form standards (NUBC/NUCC) whose electronic equivalents are the 837I/837P TR3s."
+    },
+    {
+      "artifact": "Medical necessity / prior authorization (X12 278)",
+      "app": "prior-auth",
+      "domain": "utilization-management",
+      "authorities": [
+        "RL-V01",
+        "RL-P02"
+      ],
+      "notes": "FMHP applies MCG Care Guidelines (RL-V01) for UM/medical-necessity; the Plan Vital contract (RL-P02) governs authorization timeframes and appeal rights."
     }
   ]
 }

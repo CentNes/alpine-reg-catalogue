@@ -2,8 +2,8 @@
 // Lightweight integrity check — no deps. Fails non-zero on any problem.
 const A = require('../data/authorities.json');
 const M = require('../data/mappings.json');
-const DOMAINS = new Set(['managed-care','quality','claims','encounters','membership','pharmacy','edi','privacy-security','financial','provider','member-rights','behavioral-health','interop','contract','cms','regulator','transparency','general']);
-const JX = new Set(['Federal','PR Local','NCQA']);
+const DOMAINS = new Set(['managed-care','quality','claims','encounters','membership','pharmacy','edi','privacy-security','financial','provider','member-rights','behavioral-health','interop','contract','cms','regulator','transparency','utilization-management','general']);
+const JX = new Set(['Federal','PR Local','NCQA','Vendor']);
 const errors = [];
 const ids = new Set();
 for (const a of A.authorities) {

@@ -1,7 +1,7 @@
 {
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "Alpine shared regulatory catalogue — canonical federal / PR-local / NCQA authorities governing Puerto Rico Medicaid (Plan Vital) health-plan operations. Consumed by all Alpine apps.",
-  "authorityCount": 65,
+  "authorityCount": 66,
   "authorities": [
     {
       "id": "RL-F01",
@@ -1293,6 +1293,27 @@
       "domains": [
         "member-rights",
         "transparency"
+      ]
+    },
+    {
+      "id": "RL-V01",
+      "jurisdiction": "Vendor",
+      "category": "Clinical Guidelines / UM",
+      "citation": "MCG Care Guidelines (MCG Health)",
+      "title": "MCG Care Guidelines — medical necessity & level of care",
+      "title_en": "MCG Care Guidelines — medical necessity & level of care",
+      "title_es": "Guías de Cuidado MCG — necesidad médica y nivel de cuidado",
+      "summary": "Evidence-based clinical guidelines (MCG Health, formerly Milliman Care Guidelines) used for utilization management, medical-necessity determinations, level-of-care, and prior authorization. Licensed/proprietary. First Medical (FMHP) uses MCG as its UM criteria; a denial for medical necessity cites the applied MCG guideline.",
+      "summary_en": "Evidence-based clinical guidelines (MCG Health, formerly Milliman Care Guidelines) used for utilization management, medical-necessity determinations, level-of-care, and prior authorization. Licensed/proprietary. First Medical (FMHP) uses MCG as its UM criteria; a denial for medical necessity cites the applied MCG guideline.",
+      "summary_es": "Guías clínicas basadas en evidencia (MCG Health, antes Milliman Care Guidelines) usadas para manejo de utilización, determinaciones de necesidad médica, nivel de cuidado y preautorización. Licenciadas/propietarias. First Medical (FMHP) usa MCG como su criterio de UM; una denegación por necesidad médica cita la guía MCG aplicada.",
+      "type": "Standard",
+      "status": "licensed",
+      "url": "https://www.mcg.com/",
+      "domains": [
+        "utilization-management",
+        "claims",
+        "behavioral-health",
+        "member-rights"
       ]
     }
   ]
