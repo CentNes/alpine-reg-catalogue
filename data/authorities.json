@@ -1,7 +1,7 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Alpine shared regulatory catalogue — canonical federal / PR-local / NCQA authorities governing Puerto Rico Medicaid (Plan Vital) health-plan operations. Consumed by all Alpine apps.",
-  "authorityCount": 66,
+  "authorityCount": 67,
   "authorities": [
     {
       "id": "RL-F01",
@@ -1314,6 +1314,27 @@
         "claims",
         "behavioral-health",
         "member-rights"
+      ]
+    },
+    {
+      "id": "RL-F38",
+      "jurisdiction": "Federal",
+      "category": "Managed Care (42 CFR 438)",
+      "citation": "42 CFR §438.210",
+      "title": "Coverage and authorization of services (medical necessity)",
+      "title_en": "Coverage and authorization of services (medical necessity)",
+      "title_es": "Cobertura y autorización de servicios (necesidad médica)",
+      "summary": "Medicaid managed-care standard for how MCOs cover and authorize services: define and apply medical-necessity criteria consistently, decide standard/expedited authorization requests within required timeframes, and give proper notice of adverse benefit determinations. The federal law governing the UM / prior-authorization decisions where FMHP applies its MCG criteria (RL-V01).",
+      "summary_en": "Medicaid managed-care standard for how MCOs cover and authorize services: define and apply medical-necessity criteria consistently, decide standard/expedited authorization requests within required timeframes, and give proper notice of adverse benefit determinations. The federal law governing the UM / prior-authorization decisions where FMHP applies its MCG criteria (RL-V01).",
+      "summary_es": "Estándar de Medicaid managed care sobre cómo las MCO cubren y autorizan servicios: definir y aplicar criterios de necesidad médica de forma consistente, decidir solicitudes de autorización estándar/expeditas dentro de los plazos requeridos, y notificar debidamente las determinaciones adversas de beneficios. La ley federal que rige las decisiones de UM / preautorización donde FMHP aplica sus criterios MCG (RL-V01).",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210",
+      "domains": [
+        "utilization-management",
+        "managed-care",
+        "member-rights",
+        "claims"
       ]
     }
   ]

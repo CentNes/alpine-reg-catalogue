@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Rule → artifact map. Links a concrete data element / process / EDI transaction used by an Alpine app to the governing authorities (by id in authorities.json).",
   "apps": [
     "hedis",
@@ -294,9 +294,10 @@
       "domain": "utilization-management",
       "authorities": [
         "RL-V01",
+        "RL-F38",
         "RL-P02"
       ],
-      "notes": "FMHP applies MCG Care Guidelines (RL-V01) for UM/medical-necessity; the Plan Vital contract (RL-P02) governs authorization timeframes and appeal rights."
+      "notes": "FMHP applies MCG Care Guidelines (RL-V01) as UM criteria under the federal medical-necessity/authorization standard 42 CFR 438.210 (RL-F38); the Plan Vital contract (RL-P02) governs authorization timeframes and appeal rights."
     }
   ]
 }
