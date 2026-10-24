@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "properties": {
     "id": { "type": "string", "pattern": "^RL-[A-Z]\\d{2,}$", "description": "Stable canonical id, e.g. RL-F01 (Federal), RL-P05 (PR Local), RL-N01 (NCQA)." },
-    "jurisdiction": { "type": "string", "enum": ["Federal", "PR Local", "NCQA", "Vendor"] },
+    "jurisdiction": { "type": "string", "enum": ["Federal", "PR Local", "NCQA", "Vendor", "SDO"] },
     "category": { "type": "string" },
     "citation": { "type": "string", "description": "Formal citation, e.g. '42 CFR §438.330', 'Carta Normativa 21-0217'." },
     "title": { "type": "string", "description": "Canonical title (English for federal/NCQA; Spanish for PR statutes, matching their official name)." },
@@ -16,7 +16,7 @@
     "summary_en": { "type": "string", "description": "English summary." },
     "summary_es": { "type": "string", "description": "Spanish summary." },
     "type": { "type": "string", "description": "Regulation | Statute | Policy/Guidance | Contract | Specification | Standard | Program" },
-    "status": { "type": "string", "enum": ["mandate", "licensed", "guidance", "retired"] },
+    "status": { "type": "string", "enum": ["mandate", "licensed", "guidance", "reference", "retired"] },
     "url": { "type": "string" },
     "domains": {
       "type": "array",

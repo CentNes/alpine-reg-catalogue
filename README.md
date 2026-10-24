@@ -32,7 +32,7 @@ schema/authority.schema.json   JSON Schema for one authority
   "domains": ["contract","quality","claims","membership","encounters"]
 }
 ```
-**ID scheme:** `RL-F##` Federal · `RL-P##` PR Local · `RL-N##` NCQA · `RL-V##` Vendor (commercial standards, e.g. MCG Care Guidelines). IDs are stable — apps reference the id.
+**ID scheme:** `RL-F##` Federal · `RL-P##` PR Local · `RL-N##` NCQA · `RL-V##` Vendor (commercial standards, e.g. MCG Care Guidelines) · `RL-S##` SDO (standards bodies — HL7, SNOMED, LOINC). IDs are stable — apps reference the id.
 
 **Bilingual (EN/ES):** every authority carries `title_en` / `title_es` and `summary_en` / `summary_es` so bilingual apps (all Alpine apps) render either language from one source. `title` / `summary` remain the canonical fields (English, except PR statutes keep their official Spanish name) for backward-compatible consumers.
 

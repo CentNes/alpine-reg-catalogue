@@ -1,7 +1,7 @@
 {
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Alpine shared regulatory catalogue — canonical federal / PR-local / NCQA authorities governing Puerto Rico Medicaid (Plan Vital) health-plan operations. Consumed by all Alpine apps.",
-  "authorityCount": 67,
+  "authorityCount": 76,
   "authorities": [
     {
       "id": "RL-F01",
@@ -1336,6 +1336,174 @@
         "member-rights",
         "claims"
       ]
+    },
+    {
+      "id": "RL-F39",
+      "jurisdiction": "Federal",
+      "category": "ONC (45 CFR 171)",
+      "citation": "45 CFR Part 171",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-171",
+      "domains": [
+        "interop",
+        "member-rights",
+        "privacy-security"
+      ],
+      "title_en": "Information blocking rule (ONC / Cures Act)",
+      "title_es": "Regla de bloqueo de información (ONC / Ley Cures)",
+      "summary_en": "The 21st Century Cures Act information-blocking regulation: health IT actors may not interfere with the access, exchange or use of electronic health information except under defined exceptions. The core federal mandate driving open interoperability and patient access.",
+      "summary_es": "La regulación de bloqueo de información de la Ley 21st Century Cures: los actores de TI de salud no pueden interferir con el acceso, intercambio o uso de información electrónica de salud, salvo bajo excepciones definidas. El mandato federal central que impulsa la interoperabilidad abierta y el acceso del paciente.",
+      "title": "Information blocking rule (ONC / Cures Act)",
+      "summary": "The 21st Century Cures Act information-blocking regulation: health IT actors may not interfere with the access, exchange or use of electronic health information except under defined exceptions. The core federal mandate driving open interoperability and patient access."
+    },
+    {
+      "id": "RL-F40",
+      "jurisdiction": "Federal",
+      "category": "ONC (45 CFR 170)",
+      "citation": "45 CFR Part 170 (USCDI)",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-170",
+      "domains": [
+        "interop",
+        "quality"
+      ],
+      "title_en": "ONC Health IT Certification & USCDI",
+      "title_es": "Certificación de TI de Salud de ONC y USCDI",
+      "summary_en": "The ONC Health IT Certification Program and the US Core Data for Interoperability (USCDI) — the federally adopted standardized data classes and certified-API requirements (FHIR + US Core) that certified health IT must support.",
+      "summary_es": "El Programa de Certificación de TI de Salud de ONC y los Datos Básicos de EE. UU. para la Interoperabilidad (USCDI) — las clases de datos estandarizadas adoptadas federalmente y los requisitos de API certificada (FHIR + US Core) que la TI de salud certificada debe soportar.",
+      "title": "ONC Health IT Certification & USCDI",
+      "summary": "The ONC Health IT Certification Program and the US Core Data for Interoperability (USCDI) — the federally adopted standardized data classes and certified-API requirements (FHIR + US Core) that certified health IT must support."
+    },
+    {
+      "id": "RL-F41",
+      "jurisdiction": "Federal",
+      "category": "CMS Interoperability",
+      "citation": "CMS-0057-F (89 FR 8758)",
+      "type": "Regulation",
+      "status": "mandate",
+      "url": "https://www.federalregister.gov/documents/2024/02/08/2024-00895/medicare-and-medicaid-programs-patient-protection-and-affordable-care-act-advancing",
+      "domains": [
+        "interop",
+        "utilization-management",
+        "claims",
+        "managed-care"
+      ],
+      "title_en": "CMS Interoperability & Prior Authorization Final Rule",
+      "title_es": "Regla Final de Interoperabilidad y Preautorización de CMS",
+      "summary_en": "CMS-0057-F requires impacted payers (incl. Medicaid managed care) to expose Patient Access, Provider Access, Payer-to-Payer and Prior Authorization APIs built on FHIR, and to report prior-authorization metrics. Directly shapes both the interoperability layer and the 278 prior-auth module.",
+      "summary_es": "CMS-0057-F exige que los pagadores afectados (incl. Medicaid managed care) expongan API de Acceso del Paciente, Acceso del Proveedor, Pagador-a-Pagador y Preautorización basadas en FHIR, y que reporten métricas de preautorización. Da forma directa tanto a la capa de interoperabilidad como al módulo de preautorización 278.",
+      "title": "CMS Interoperability & Prior Authorization Final Rule",
+      "summary": "CMS-0057-F requires impacted payers (incl. Medicaid managed care) to expose Patient Access, Provider Access, Payer-to-Payer and Prior Authorization APIs built on FHIR, and to report prior-authorization metrics. Directly shapes both the interoperability layer and the 278 prior-auth module."
+    },
+    {
+      "id": "RL-S01",
+      "jurisdiction": "SDO",
+      "category": "HL7",
+      "citation": "HL7 FHIR R4 (4.0.1)",
+      "type": "Standard",
+      "status": "reference",
+      "url": "https://hl7.org/fhir/R4/",
+      "domains": [
+        "interop"
+      ],
+      "title_en": "HL7 FHIR R4 (base specification)",
+      "title_es": "HL7 FHIR R4 (especificación base)",
+      "summary_en": "The HL7 Fast Healthcare Interoperability Resources R4 standard — the RESTful API and resource model (Patient, Coverage, Claim, Encounter, Observation…) that is the backbone of modern health data exchange and the common wire format across the Alpine products.",
+      "summary_es": "El estándar HL7 FHIR R4 (Fast Healthcare Interoperability Resources) — la API REST y el modelo de recursos (Patient, Coverage, Claim, Encounter, Observation…) que es la base del intercambio moderno de datos de salud y el formato común entre los productos Alpine.",
+      "title": "HL7 FHIR R4 (base specification)",
+      "summary": "The HL7 Fast Healthcare Interoperability Resources R4 standard — the RESTful API and resource model (Patient, Coverage, Claim, Encounter, Observation…) that is the backbone of modern health data exchange and the common wire format across the Alpine products."
+    },
+    {
+      "id": "RL-S02",
+      "jurisdiction": "SDO",
+      "category": "HL7",
+      "citation": "HL7 V2.x",
+      "type": "Standard",
+      "status": "reference",
+      "url": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185",
+      "domains": [
+        "interop"
+      ],
+      "title_en": "HL7 V2.x messaging",
+      "title_es": "Mensajería HL7 V2.x",
+      "summary_en": "HL7 Version 2.x pipe-delimited messaging (ADT admit/discharge/transfer, ORU lab results, ORM/OMG orders, DFT charges) — still the dominant real-world interface for hospital and lab feeds that the interoperability layer must ingest and normalize.",
+      "summary_es": "Mensajería HL7 Versión 2.x delimitada por barras (ADT admisión/alta/traslado, ORU resultados de laboratorio, ORM/OMG órdenes, DFT cargos) — todavía la interfaz más usada en la práctica para alimentar datos de hospitales y laboratorios que la capa de interoperabilidad debe ingerir y normalizar.",
+      "title": "HL7 V2.x messaging",
+      "summary": "HL7 Version 2.x pipe-delimited messaging (ADT admit/discharge/transfer, ORU lab results, ORM/OMG orders, DFT charges) — still the dominant real-world interface for hospital and lab feeds that the interoperability layer must ingest and normalize."
+    },
+    {
+      "id": "RL-S03",
+      "jurisdiction": "SDO",
+      "category": "HL7",
+      "citation": "HL7 C-CDA R2.1",
+      "type": "Standard",
+      "status": "reference",
+      "url": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=492",
+      "domains": [
+        "interop"
+      ],
+      "title_en": "HL7 C-CDA R2.1 (clinical documents)",
+      "title_es": "HL7 C-CDA R2.1 (documentos clínicos)",
+      "summary_en": "HL7 Consolidated Clinical Document Architecture — the XML document standard (CCD, Discharge Summary, Referral Note) for exchanging structured clinical summaries between providers and plans.",
+      "summary_es": "Arquitectura de Documentos Clínicos Consolidada de HL7 — el estándar de documentos XML (CCD, Resumen de Alta, Nota de Referido) para intercambiar resúmenes clínicos estructurados entre proveedores y planes.",
+      "title": "HL7 C-CDA R2.1 (clinical documents)",
+      "summary": "HL7 Consolidated Clinical Document Architecture — the XML document standard (CCD, Discharge Summary, Referral Note) for exchanging structured clinical summaries between providers and plans."
+    },
+    {
+      "id": "RL-S04",
+      "jurisdiction": "SDO",
+      "category": "Terminology",
+      "citation": "SNOMED CT (US Edition, via NLM UMLS)",
+      "type": "Standard",
+      "status": "licensed",
+      "url": "https://www.nlm.nih.gov/healthit/snomedct/",
+      "domains": [
+        "interop"
+      ],
+      "title_en": "SNOMED CT (clinical terminology)",
+      "title_es": "SNOMED CT (terminología clínica)",
+      "summary_en": "SNOMED Clinical Terms — the comprehensive clinical terminology for problems, procedures and findings. Licensed but free to use in the US through the NLM UMLS Metathesaurus license; required for coded clinical interoperability.",
+      "summary_es": "SNOMED Clinical Terms — la terminología clínica integral para problemas, procedimientos y hallazgos. Con licencia pero de uso gratuito en EE. UU. mediante la licencia del UMLS Metathesaurus de la NLM; necesaria para la interoperabilidad clínica codificada.",
+      "title": "SNOMED CT (clinical terminology)",
+      "summary": "SNOMED Clinical Terms — the comprehensive clinical terminology for problems, procedures and findings. Licensed but free to use in the US through the NLM UMLS Metathesaurus license; required for coded clinical interoperability."
+    },
+    {
+      "id": "RL-S05",
+      "jurisdiction": "SDO",
+      "category": "Terminology",
+      "citation": "LOINC (Regenstrief)",
+      "type": "Standard",
+      "status": "reference",
+      "url": "https://loinc.org/",
+      "domains": [
+        "interop"
+      ],
+      "title_en": "LOINC (lab & observation codes)",
+      "title_es": "LOINC (códigos de laboratorio y observaciones)",
+      "summary_en": "Logical Observation Identifiers Names and Codes (Regenstrief) — the universal code system for lab tests and clinical observations. Free to use under the LOINC license; pairs with SNOMED CT for coded results.",
+      "summary_es": "Logical Observation Identifiers Names and Codes (Regenstrief) — el sistema de códigos universal para pruebas de laboratorio y observaciones clínicas. De uso gratuito bajo la licencia LOINC; se combina con SNOMED CT para resultados codificados.",
+      "title": "LOINC (lab & observation codes)",
+      "summary": "Logical Observation Identifiers Names and Codes (Regenstrief) — the universal code system for lab tests and clinical observations. Free to use under the LOINC license; pairs with SNOMED CT for coded results."
+    },
+    {
+      "id": "RL-S06",
+      "jurisdiction": "SDO",
+      "category": "HL7",
+      "citation": "HL7 US Core IG (USCDI-aligned)",
+      "type": "Standard",
+      "status": "reference",
+      "url": "https://hl7.org/fhir/us/core/",
+      "domains": [
+        "interop"
+      ],
+      "title_en": "US Core FHIR Implementation Guide",
+      "title_es": "Guía de Implementación FHIR US Core",
+      "summary_en": "The HL7 US Core IG constrains FHIR R4 to the USCDI data elements — the national floor for what a FHIR API must expose (demographics, problems, meds, allergies, labs, encounters). Baseline conformance target for the interoperability APIs.",
+      "summary_es": "La guía US Core de HL7 restringe FHIR R4 a los elementos de datos de USCDI — el piso nacional de lo que una API FHIR debe exponer (demografía, problemas, medicamentos, alergias, laboratorios, encuentros). Objetivo base de conformidad para las API de interoperabilidad.",
+      "title": "US Core FHIR Implementation Guide",
+      "summary": "The HL7 US Core IG constrains FHIR R4 to the USCDI data elements — the national floor for what a FHIR API must expose (demographics, problems, meds, allergies, labs, encounters). Baseline conformance target for the interoperability APIs."
     }
   ]
 }

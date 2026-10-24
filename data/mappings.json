@@ -1,12 +1,13 @@
 {
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Rule → artifact map. Links a concrete data element / process / EDI transaction used by an Alpine app to the governing authorities (by id in authorities.json).",
   "apps": [
     "hedis",
     "ub04-ocr",
     "mmis-835",
     "shared",
-    "prior-auth"
+    "prior-auth",
+    "interop"
   ],
   "mappings": [
     {
@@ -298,6 +299,48 @@
         "RL-P02"
       ],
       "notes": "FMHP applies MCG Care Guidelines (RL-V01) as UM criteria under the federal medical-necessity/authorization standard 42 CFR 438.210 (RL-F38); the Plan Vital contract (RL-P02) governs authorization timeframes and appeal rights."
+    },
+    {
+      "artifact": "FHIR API & US Core data floor",
+      "app": "interop",
+      "domain": "interop",
+      "authorities": [
+        "RL-S01",
+        "RL-S06",
+        "RL-F40"
+      ],
+      "notes": "The interoperability APIs expose FHIR R4 (RL-S01) constrained to the US Core IG (RL-S06), which realizes the USCDI data floor adopted under ONC certification (RL-F40)."
+    },
+    {
+      "artifact": "HL7 V2 & C-CDA ingestion",
+      "app": "interop",
+      "domain": "interop",
+      "authorities": [
+        "RL-S02",
+        "RL-S03"
+      ],
+      "notes": "Real-world hospital/lab feeds arrive as HL7 V2.x messages (RL-S02) and C-CDA documents (RL-S03); the layer ingests and normalizes both into FHIR."
+    },
+    {
+      "artifact": "Clinical terminology binding",
+      "app": "interop",
+      "domain": "interop",
+      "authorities": [
+        "RL-S04",
+        "RL-S05",
+        "RL-F37"
+      ],
+      "notes": "Coded clinical data binds to SNOMED CT (RL-S04) and LOINC (RL-S05) for clinical content, alongside the HIPAA code sets ICD-10/CPT/HCPCS (RL-F37) for administrative data."
+    },
+    {
+      "artifact": "Information-blocking & patient-access compliance",
+      "app": "interop",
+      "domain": "interop",
+      "authorities": [
+        "RL-F39",
+        "RL-F41"
+      ],
+      "notes": "The product must not block information exchange (RL-F39) and must stand up the Patient/Provider/Payer-to-Payer and Prior Authorization APIs required by CMS-0057-F (RL-F41)."
     }
   ]
 }
